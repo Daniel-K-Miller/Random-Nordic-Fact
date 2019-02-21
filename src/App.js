@@ -1,43 +1,16 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import PrimButton from './modules/PrimButton.js';
+import ResetButton from './modules/ResetButton.js'
 
 const Wrapper = styled.section`
-  background: lightgrey;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 `
 const InnerWrapper = styled.article`
   display: block;
   margin: 0 auto;
-`
-
-const Button = styled.a`
-  color: white;
-  padding: .5em 1em;
-  font-size: 1.2em;
-  background: rosybrown;
-  border: 2px solid rosybrown;
-  border-radius: 3px;
-  text-align: center;
-  display: inline-block;
-  margin: 1em;
-  text-decoration: none;
-  cursor: pointer;
-  ${props => props.styles === 'primary' && css`
-  background: darkred;
-  color: white;
-  border: 2px solid darkred;
-  `}
-  ${props => props.styles === 'secondary' && css`
-  background: forestgreen;
-  border: 2px solid forestgreen;
-  color: white;
-  `}
-`
-const ExtendedButton = styled(Button)`
-  background: khaki;
-  display: flex;
 `
 
 class App extends Component {
@@ -64,17 +37,10 @@ class App extends Component {
     return (
       <Wrapper>
         <InnerWrapper>
-          <Button styles={this.state.styles} onClick={this.handleClick}>
-            {this.state.text}
-          </Button>
-          {this.state.text === "Clicked!" && <Button onClick={this.handleReset}>
-            Reset
-        </Button>}
+          <PrimButton styles={this.state.styles} onChange={this.handleClick} text={this.state.text} />
         </InnerWrapper>
         <InnerWrapper>
-          <ExtendedButton target="_blank" href="https://www.google.co.uk">
-            Testy
-          </ExtendedButton>
+          <ResetButton text={this.state.text} onChange={this.handleReset} />
         </InnerWrapper>
       </Wrapper>
     );
