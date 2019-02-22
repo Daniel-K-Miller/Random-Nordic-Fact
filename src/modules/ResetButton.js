@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Button = styled.a`
   color: white;
@@ -14,6 +14,10 @@ const Button = styled.a`
   width: 6em;
   text-decoration: none;
   cursor: pointer;
+  :hover {
+    background: red;
+    border: 2px solid red;
+  }
 `
 
 class ResetButton extends Component {
