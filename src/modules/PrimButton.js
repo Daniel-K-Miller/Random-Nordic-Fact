@@ -15,7 +15,7 @@ const Button = styled.a`
   text-decoration: none;
   cursor: pointer;
   ${props => props.styles === 'primary' && css`
-  background: 	goldenrod;
+  background: goldenrod;
   color: white;
   border: 2px solid goldenrod;
   `}
@@ -29,7 +29,7 @@ const Button = styled.a`
 class PrimButton extends Component {
     render() {
         return (
-            <Button styles={this.props.styles} onClick={this.props.onChange}>
+            <Button styles={this.props.styles} onClick={this.props.text === "Click here!" ? this.props.onChange : undefined}>
                 {this.props.text}
             </Button>
         );

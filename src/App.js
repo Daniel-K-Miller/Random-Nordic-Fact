@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PrimButton from './modules/PrimButton.js';
 import ResetButton from './modules/ResetButton.js'
+import Name from './modules/Name.js'
+
+const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
+
 
 const Wrapper = styled.section`
   display: block;
@@ -18,14 +22,17 @@ class App extends Component {
     super(props);
     this.state = {
       text: 'Click here!',
-      styles: 'primary'
+      styles: 'primary',
+      index: ''
     }
   }
   handleClick = () => {
+    let random = Math.floor(Math.random() * nordicArray.length);
     this.setState({
       text: "Clicked!",
-      styles: 'secondary'
-    })
+      styles: 'secondary',
+      index: random
+    });
   }
   handleReset = () => {
     this.setState({
@@ -33,12 +40,17 @@ class App extends Component {
       styles: 'primary'
     })
   }
+
+
   render() {
+
+
     return (
       <Wrapper>
         <InnerWrapper>
           <PrimButton styles={this.state.styles} onChange={this.handleClick} text={this.state.text} />
         </InnerWrapper>
+        <Name text={this.state.text} country={nordicArray[this.state.index]} />
         <InnerWrapper>
           <ResetButton text={this.state.text} onChange={this.handleReset} />
         </InnerWrapper>
