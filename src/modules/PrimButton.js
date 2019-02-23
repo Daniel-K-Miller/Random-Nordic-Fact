@@ -5,8 +5,8 @@ const Button = styled.a`
   color: white;
   padding: .5em 1em;
   font-size: 1.2em;
-  background: rosybrown;
-  border: 2px solid rosybrown;
+  background: forestgreen;
+  border: 2px solid forestgreen;
   border-radius: 3px;
   text-align: center;
   display: inline-block;
@@ -14,15 +14,13 @@ const Button = styled.a`
   width: 11em;
   text-decoration: none;
   cursor: pointer;
+  }
   ${props => props.styles === 'primary' && css`
   background: goldenrod;
   color: white;
   border: 2px solid goldenrod;
-  `}
-  ${props => props.styles === 'secondary' && css`
-  background: forestgreen;
-  border: 2px solid forestgreen;
-  color: white;
+  :hover {
+    opacity: .9;
   `}
 `
 

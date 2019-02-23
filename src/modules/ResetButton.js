@@ -14,6 +14,10 @@ const Button = styled.a`
   width: 6em;
   text-decoration: none;
   cursor: pointer;
+  :hover {
+    background: red;
+    border: 2px solid red;
+  }
 `
 
 class ResetButton extends Component {
