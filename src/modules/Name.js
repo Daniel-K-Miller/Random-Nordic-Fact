@@ -13,9 +13,30 @@ const NameCom = styled.h1`
   margin: 1em;
   width: 6em;
   text-decoration: none;
-  /* Fix this problem here */
-  ${props => props.country === 'Norway' && css`
-    color: red;
+  ${props => props.styles === "Finland" && css`
+    color: #003580;
+    background: white;
+    border: 2px solid white;
+  `}
+  ${props => props.styles === "Norway" && css`
+    color: #002868;
+    background: #EF2B2D;
+    border: 2px solid white;
+  `}
+  ${props => props.styles === "Sweden" && css`
+    color: #FECC00;
+    background: #006AA7;
+    border: 2px solid #006AA7;
+  `}
+  ${props => props.styles === "Denmark" && css`
+    color: white;
+    background: #C60C30;
+    border: 2px solid #C60C30;
+  `}
+  ${props => props.styles === "Iceland" && css`
+    color: white;
+    background: #02529C;
+    border: 2px solid #DC1E35;
   `}
   :hover {
       animation: myMove 2s ease-in-out;
@@ -37,7 +58,7 @@ class Name extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.text === "Clicked!" && <NameCom>{this.props.country}</NameCom>}
+                {this.props.text === "Clicked!" && <NameCom styles={this.props.country}>{this.props.country}</NameCom>}
             </React.Fragment>
         );
     }

@@ -6,7 +6,6 @@ import Name from './modules/Name.js'
 
 const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
 
-
 const Wrapper = styled.section`
   display: block;
   text-align: center;
