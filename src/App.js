@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PrimButton from './modules/PrimButton.js';
 import ResetButton from './modules/ResetButton.js'
 import Name from './modules/Name.js'
+import FactBox from './modules/Facts.js'
 
 const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
 
@@ -50,6 +51,9 @@ class App extends Component {
           <PrimButton styles={this.state.styles} onChange={this.handleClick} text={this.state.text} />
         </InnerWrapper>
         <Name text={this.state.text} country={nordicArray[this.state.index]} />
+        <InnerWrapper>
+          <FactBox text={this.state.text} country={nordicArray[this.state.index]} />
+        </InnerWrapper>
         <InnerWrapper>
           <ResetButton text={this.state.text} onChange={this.handleReset} />
         </InnerWrapper>
