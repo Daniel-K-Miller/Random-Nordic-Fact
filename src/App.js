@@ -52,7 +52,7 @@ class App extends Component {
         </InnerWrapper>
         <Name text={this.state.text} country={nordicArray[this.state.index]} />
         <InnerWrapper>
-          <FactBox text={this.state.text} country={"Iceland"} />
+          <FactBox text={this.state.text} country={nordicArray[this.state.index]} />
         </InnerWrapper>
         <InnerWrapper>
           <ResetButton text={this.state.text} onChange={this.handleReset} />
