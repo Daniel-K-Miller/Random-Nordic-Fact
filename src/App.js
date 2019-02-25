@@ -21,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      clicked: false,
       text: 'Click here!',
       styles: 'primary',
       index: ''
@@ -29,13 +30,15 @@ class App extends Component {
   handleClick = () => {
     let random = Math.floor(Math.random() * nordicArray.length);
     this.setState({
-      text: "Clicked!",
+      clicked: true,
+      text: "Click again!",
       styles: 'secondary',
       index: random
     });
   }
   handleReset = () => {
     this.setState({
+      clicked: false,
       text: 'Click here!',
       styles: 'primary'
     })
@@ -43,19 +46,17 @@ class App extends Component {
 
 
   render() {
-
-
     return (
       <Wrapper>
         <InnerWrapper>
-          <PrimButton styles={this.state.styles} onChange={this.handleClick} text={this.state.text} />
+          <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
         </InnerWrapper>
-        <Name text={this.state.text} country={nordicArray[this.state.index]} />
+        <Name clicked={this.state.clicked} country={nordicArray[this.state.index]} />
         <InnerWrapper>
-          <FactBox text={this.state.text} country={nordicArray[this.state.index]} />
+          <FactBox clicked={this.state.clicked} country={nordicArray[this.state.index]} />
         </InnerWrapper>
         <InnerWrapper>
-          <ResetButton text={this.state.text} onChange={this.handleReset} />
+          <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
         </InnerWrapper>
       </Wrapper>
     );

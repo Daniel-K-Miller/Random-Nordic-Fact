@@ -24,8 +24,8 @@ class ResetButton extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.text === "Clicked!" && <Button onClick={this.props.onChange}>
-          Reset
+        {this.props.clicked === true && <Button onClick={this.props.onChange}>
+          Close
           </Button>}
       </React.Fragment>
     );

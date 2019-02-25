@@ -27,7 +27,7 @@ const Button = styled.a`
 class PrimButton extends Component {
   render() {
     return (
-      <Button styles={this.props.styles} onClick={this.props.text === "Click here!" ? this.props.onChange : undefined}>
+      <Button styles={this.props.styles} onClick={this.props.onChange}>
         {this.props.text}
       </Button>
     );

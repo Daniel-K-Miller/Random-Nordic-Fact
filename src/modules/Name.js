@@ -55,13 +55,13 @@ const NameCom = styled.h1`
 `
 
 class Name extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                {this.props.text === "Clicked!" && <NameCom styles={this.props.country}>{this.props.country}</NameCom>}
-            </React.Fragment>
-        );
-    }
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.clicked === true && <NameCom styles={this.props.country}>{this.props.country}</NameCom>}
+      </React.Fragment>
+    );
+  }
 }
 
 export default Name;
