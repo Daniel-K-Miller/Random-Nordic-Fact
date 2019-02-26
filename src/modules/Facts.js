@@ -43,52 +43,55 @@ class FactBox extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        // Each array state starts with a full array and every iteration splices() an entry until there will be none left.
-        if (nextProps.country === "Iceland") {
-            // creates array that is used to setState
-            let array = [...this.state.icelandFacts];
-            // finds a random index for this iteration for use in picking a random item in the array
-            let index = Math.floor(Math.random() * array.length);
-            // sets the random fact in the state based on the above
-            this.setState({
-                fact: array[index],
-            });
-            // removes from the temporal array the fact used
-            array.splice(index, 1);
-            // if the temporal array has no items reset it back to the starting array and setState otherwise just remove an item and setState
-            array.length === 0 ? this.setState({ icelandFacts: fullIcelandFacts }) : this.setState({ icelandFacts: array });
-        } else if (nextProps.country === "Denmark") {
-            let array = [...this.state.denmarkFacts];
-            let index = Math.floor(Math.random() * array.length);
-            this.setState({
-                fact: array[index],
-            });
-            array.splice(index, 1);
-            array.length === 0 ? this.setState({ icelandFacts: fullDenmarkFacts }) : this.setState({ denmarkFacts: array });
-        } else if (nextProps.country === "Norway") {
-            let array = [...this.state.norwayFacts];
-            let index = Math.floor(Math.random() * array.length);
-            this.setState({
-                fact: array[index],
-            });
-            array.splice(index, 1);
-            array.length === 0 ? this.setState({ norwayFacts: fullNorwayFacts }) : this.setState({ norwayFacts: array });
-        } else if (nextProps.country === "Sweden") {
-            let array = [...this.state.swedenFacts];
-            let index = Math.floor(Math.random() * array.length);
-            this.setState({
-                fact: array[index],
-            });
-            array.splice(index, 1);
-            array.length === 0 ? this.setState({ swedenFacts: fullSwedenFacts }) : this.setState({ swedenFacts: array });
-        } else if (nextProps.country === "Finland") {
-            let array = [...this.state.finlandFacts];
-            let index = Math.floor(Math.random() * array.length);
-            this.setState({
-                fact: array[index],
-            });
-            array.splice(index, 1);
-            array.length === 0 ? this.setState({ finlandFacts: fullFinlandFacts }) : this.setState({ finlandFacts: array });
+        // Makes it so code below will only execute when a new click event happens. Without it, any new props passed would trigger code which was undesirable e.g. reset button
+        if (nextProps.clicked === true) {
+            // Each array state starts with a full array and every iteration splices() an entry until there will be none left.
+            if (nextProps.country === "Iceland") {
+                // creates array that is used to setState
+                let array = [...this.state.icelandFacts];
+                // finds a random index for this iteration for use in picking a random item in the array
+                let index = Math.floor(Math.random() * array.length);
+                // sets the random fact in the state based on the above
+                this.setState({
+                    fact: array[index],
+                });
+                // removes from the temporal array the fact used
+                array.splice(index, 1);
+                // if the temporal array has no items reset it back to the starting array and setState otherwise just remove an item and setState
+                array.length === 0 ? this.setState({ icelandFacts: fullIcelandFacts }) : this.setState({ icelandFacts: array });
+            } else if (nextProps.country === "Denmark") {
+                let array = [...this.state.denmarkFacts];
+                let index = Math.floor(Math.random() * array.length);
+                this.setState({
+                    fact: array[index],
+                });
+                array.splice(index, 1);
+                array.length === 0 ? this.setState({ icelandFacts: fullDenmarkFacts }) : this.setState({ denmarkFacts: array });
+            } else if (nextProps.country === "Norway") {
+                let array = [...this.state.norwayFacts];
+                let index = Math.floor(Math.random() * array.length);
+                this.setState({
+                    fact: array[index],
+                });
+                array.splice(index, 1);
+                array.length === 0 ? this.setState({ norwayFacts: fullNorwayFacts }) : this.setState({ norwayFacts: array });
+            } else if (nextProps.country === "Sweden") {
+                let array = [...this.state.swedenFacts];
+                let index = Math.floor(Math.random() * array.length);
+                this.setState({
+                    fact: array[index],
+                });
+                array.splice(index, 1);
+                array.length === 0 ? this.setState({ swedenFacts: fullSwedenFacts }) : this.setState({ swedenFacts: array });
+            } else if (nextProps.country === "Finland") {
+                let array = [...this.state.finlandFacts];
+                let index = Math.floor(Math.random() * array.length);
+                this.setState({
+                    fact: array[index],
+                });
+                array.splice(index, 1);
+                array.length === 0 ? this.setState({ finlandFacts: fullFinlandFacts }) : this.setState({ finlandFacts: array });
+            }
         }
     }
 
