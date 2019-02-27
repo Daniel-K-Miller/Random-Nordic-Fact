@@ -11,12 +11,21 @@ const Wrapper = styled.section`
   display: block;
   text-align: center;
   margin: 0 auto;
+  width: 1000px;
+  height: 100vh;
+  background-color: #262626;
 `
 const InnerWrapper = styled.article`
   display: flex;
   margin: auto;
-  width: 300px;
+  width: 200px;
   position: relative;
+`
+const InversedWrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
 `
 
 class App extends Component {
@@ -54,8 +63,10 @@ class App extends Component {
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
         </InnerWrapper>
-        <Name clicked={this.state.clicked} country={nordicArray[this.state.index]} />
-        <FactBox clicked={this.state.clicked} country={nordicArray[this.state.index]} />
+        <InversedWrapper>
+          <Name clicked={this.state.clicked} country={nordicArray[this.state.index]} />
+          <FactBox clicked={this.state.clicked} country={nordicArray[this.state.index]} />
+        </InversedWrapper>
       </Wrapper>
     );
   }

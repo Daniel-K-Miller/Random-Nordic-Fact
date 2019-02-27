@@ -3,19 +3,26 @@ import styled from 'styled-components';
 
 const Button = styled.a`
   color: white;
-  margin: 1em 0;
-  padding: .5em 0;
+  margin: auto;
+  padding: 0;
+  display: flex;
   font-size: 1.2em;
   background: rosybrown;
   border: 2px solid rosybrown;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-radius: 3px;
   text-align: center;
   width: 20px;
+  height: 20px;
   text-decoration: none;
   position: absolute;
-  right: 0;
+  right: 10px;
+  top: 0;
+  bottom: 0;
   cursor: pointer;
+  opacity: .5;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
   :hover {
     background: red;
     border: 2px solid red;
@@ -27,7 +34,7 @@ class ResetButton extends Component {
     return (
       <React.Fragment>
         {this.props.clicked === true && <Button onClick={this.props.onChange}>
-          X
+          x
           </Button>}
       </React.Fragment>
     );
