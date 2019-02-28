@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Nav = styled.nav`
     display: flex;
     color: white;
+    color: white;
+    margin: 0 100px;
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style-type: none;
+        width: 100%;
+    }
     ul li {
-        color: white;
+        background-color: transparent;
+        padding: 20px 0;
+        flex: 1;
+        cursor: pointer;
+        &:hover {
+            background-color: #737373;
+        }
+        ${props => props.styles === 'Finland' && css`
+        color: blue;
+        `}
     }
 `
 
@@ -14,12 +32,7 @@ class Navi extends Component {
         return (
             <Nav>
                 <ul>
-                    <li>All</li>
-                    <li>Denmark</li>
-                    <li>Norway</li>
-                    <li>Sweden</li>
-                    <li>Finland</li>
-                    <li>Iceland</li>
+                    {this.props.nordicArray.map((x) => <li key={x + "key"} styles={x}>{x}</li>)}
                 </ul>
             </Nav>
         );

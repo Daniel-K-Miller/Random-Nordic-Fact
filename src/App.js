@@ -55,12 +55,17 @@ class App extends Component {
       styles: 'primary'
     })
   }
+  handleNav = (props) => {
+    if (props.children === "All") {
+      console.log("All");
+    }
+  }
 
 
   render() {
     return (
       <Wrapper>
-        <Navi />
+        <Navi nordicArray={nordicArray} />
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />

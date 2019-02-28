@@ -18,7 +18,7 @@ const Button = styled.a`
   :hover {
     opacity: .9;
   }
-  }
+
   ${props => props.styles === 'secondary' && css`
   background: forestgreen;
   border: 2px solid forestgreen;
