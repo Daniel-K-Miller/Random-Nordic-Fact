@@ -26,6 +26,7 @@ const Button = styled.a`
   :hover {
     background: red;
     border: 2px solid red;
+    opacity: 1;
   }
 `
 

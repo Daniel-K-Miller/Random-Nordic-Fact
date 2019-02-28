@@ -3,15 +3,14 @@ import styled from 'styled-components';
 
 const Fact = styled.p`
   color: white;
-  padding: 1em;
+  padding: 1.5em;
   font-size: 1.2em;
-  background: transparent;
-  border: 2px solid white;
+  background: #1a1a1a;
   border-radius: 3px;
   text-align: center;
   display: inline-block;
   margin: .2em;
-  width: 15em;
+  width: 700px;
   text-decoration: none;
 `
 // Arrays used for resetting the state once array states are empty

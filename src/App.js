@@ -4,6 +4,7 @@ import PrimButton from './modules/PrimButton.js';
 import ResetButton from './modules/ResetButton.js'
 import Name from './modules/Name.js'
 import FactBox from './modules/Facts.js'
+import Navi from './modules/Navi.js'
 
 const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
 
@@ -59,6 +60,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+        <Navi />
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
