@@ -21,7 +21,7 @@ class Navi extends Component {
         return (
             <Nav>
                 <ul>
-                    <ListItem nordicArray={this.props.nordicArray} testArray={this.props.testArray} />
+                    <ListItem nordicArray={this.props.nordicArray} testArray={this.props.testArray} onChange={this.props.onChange} />
                 </ul>
             </Nav>
         );

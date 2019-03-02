@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
 const LI = styled.li`
-        background-color: transparent;
-        padding: 20px 0;
-        flex: 1;
-        cursor: pointer;
+        color: white;
+  padding: .5em 1em;
+  font-size: 1.2em;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+  margin: 1em;
+  width: 6em;
+  text-decoration: none;
+  cursor: pointer;
         &:hover {
-            background-color: #737373;
+            background-color: transparent;
             color: white;
         }
         ${props => props.testArray.finland === 1 && props.children === "Finland" && css`
@@ -26,7 +34,7 @@ const LI = styled.li`
             color: white;
             background: #02529C;
         `}
-        ${props => props.testArray.finland === 1 && props.children === "Denmark" && css`
+        ${props => props.testArray.denmark === 1 && props.children === "Denmark" && css`
             color: white;
             background: #C60C30;
         `}
@@ -35,7 +43,7 @@ const LI = styled.li`
 
 class ListItem extends Component {
     render() {
-        return this.props.nordicArray.map((x) => <LI key={x} testArray={this.props.testArray} >{x}</LI>);
+        return this.props.nordicArray.map((x) => <LI key={x} testArray={this.props.testArray} onClick={this.props.onChange} >{x}</LI>);
     }
 }
 

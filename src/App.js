@@ -45,6 +45,9 @@ class App extends Component {
         iceland: 1
       }
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+    this.handArray = this.handleArray.bind(this);
   }
   handleClick = () => {
     let random = Math.floor(Math.random() * nordicArray.length);
@@ -62,17 +65,18 @@ class App extends Component {
       styles: 'primary'
     })
   }
-  handleNav = (props) => {
-    if (props.children === "All") {
-      console.log("All");
-    }
+  handleArray = () => {
+    this.setState(prevState => ({
+      testArray: { ...prevState.testArray, finland: 0 }
+    }))
+    console.log(this.state.testArray)
   }
 
 
   render() {
     return (
       <Wrapper>
-        <Navi nordicArray={nordicArray} testArray={this.state.testArray} />
+        <Navi nordicArray={nordicArray} testArray={this.state.testArray} onChange={this.handleArray} />
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
