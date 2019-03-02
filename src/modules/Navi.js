@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import ListItem from './list.js'
 
 const Nav = styled.nav`
     display: flex;
@@ -13,18 +14,6 @@ const Nav = styled.nav`
         list-style-type: none;
         width: 100%;
     }
-    ul li {
-        background-color: transparent;
-        padding: 20px 0;
-        flex: 1;
-        cursor: pointer;
-        &:hover {
-            background-color: #737373;
-        }
-        ${props => props.styles === 'Finland' && css`
-        color: blue;
-        `}
-    }
 `
 
 class Navi extends Component {
@@ -32,7 +21,7 @@ class Navi extends Component {
         return (
             <Nav>
                 <ul>
-                    {this.props.nordicArray.map((x) => <li key={x + "key"} styles={x}>{x}</li>)}
+                    <ListItem nordicArray={this.props.nordicArray} />
                 </ul>
             </Nav>
         );
