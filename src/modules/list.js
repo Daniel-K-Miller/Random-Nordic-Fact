@@ -8,43 +8,34 @@ const LI = styled.li`
         cursor: pointer;
         &:hover {
             background-color: #737373;
+            color: white;
         }
-        ${props => props.children === "Finland" && css`
-        &:hover {
+        ${props => props.testArray.finland === 1 && props.children === "Finland" && css`
             background-color: white;
             color: #003580;
-        }
         `}
-        ${props => props.children === "Norway" && css`
-        &:hover {
+        ${props => props.testArray.norway === 1 && props.children === "Norway" && css`
             color: #002868;
             background: #EF2B2D;
-        }
         `}
-        ${props => props.children === "Sweden" && css`
-        &:hover {
+        ${props => props.testArray.sweden === 1 && props.children === "Sweden" && css`
             color: #FECC00;
             background: #006AA7;
-        }
         `}
-        ${props => props.children === "Iceland" && css`
-        &:hover {
+        ${props => props.testArray.iceland === 1 && props.children === "Iceland" && css`
             color: white;
             background: #02529C;
-        }
         `}
-        ${props => props.children === "Denmark" && css`
-        &:hover {
+        ${props => props.testArray.finland === 1 && props.children === "Denmark" && css`
             color: white;
             background: #C60C30;
-        }
         `}
     }
 `
 
 class ListItem extends Component {
     render() {
-        return this.props.nordicArray.map((x) => <LI key={x}>{x}</LI>);
+        return this.props.nordicArray.map((x) => <LI key={x} testArray={this.props.testArray} >{x}</LI>);
     }
 }
 

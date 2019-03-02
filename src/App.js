@@ -36,7 +36,14 @@ class App extends Component {
       clicked: false,
       text: 'Click here!',
       styles: 'primary',
-      index: ''
+      index: '',
+      testArray: {
+        finland: 1,
+        sweden: 1,
+        denmark: 1,
+        norway: 1,
+        iceland: 1
+      }
     }
   }
   handleClick = () => {
@@ -65,7 +72,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Navi nordicArray={nordicArray} />
+        <Navi nordicArray={nordicArray} testArray={this.state.testArray} />
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
