@@ -67,7 +67,9 @@ class App extends Component {
   }
   handleArray = (element) => {
     if (element.props.text === "Finland") {
-      console.log("Hello Finland!");
+      this.setState(prevState => ({
+        testArray: { ...prevState.testArray, finland: 0 }
+      }))
     }
   }
 
