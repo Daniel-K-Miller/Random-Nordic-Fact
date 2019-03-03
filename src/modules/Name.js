@@ -58,7 +58,7 @@ class Name extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.clicked === true && <NameCom styles={this.props.country}>{this.props.country}</NameCom>}
+        {this.props.text === "Click again!" && <NameCom styles={this.props.country}>{this.props.country}</NameCom>}
       </React.Fragment>
     );
   }

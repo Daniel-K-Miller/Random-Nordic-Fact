@@ -97,7 +97,7 @@ class FactBox extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.clicked === true && <Fact country={this.props.country} testArray={this.props.testArray}>{this.state.fact}</Fact>}
+                {this.props.text === "Click again!" && <Fact country={this.props.country} testArray={this.props.testArray}>{this.state.fact}</Fact>}
             </React.Fragment>
         );
     }

@@ -104,6 +104,7 @@ class App extends Component {
     })
   }
   handleArray = (element) => {
+    this.setState({ clicked: false })
     if (element.props.text === "Finland") {
       (this.state.testArray.finland === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 0 } }))
         : (this.state.testArray.finland === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 1 } }))
@@ -133,11 +134,11 @@ class App extends Component {
         <Navi nordicArray={nordicArray} testArray={this.state.testArray} onChange={this.handleArray} />
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
-          <ResetButton clicked={this.state.clicked} onChange={this.handleReset} />
+          <ResetButton clicked={this.state.clicked} onChange={this.handleReset} text={this.state.text} />
         </InnerWrapper>
         <InversedWrapper>
-          <Name clicked={this.state.clicked} country={dynNordicArray[this.state.index]} />
-          <FactBox clicked={this.state.clicked} country={dynNordicArray[this.state.index]} testArray={this.state.testArray} />
+          <Name clicked={this.state.clicked} country={dynNordicArray[this.state.index]} text={this.state.text} />
+          <FactBox clicked={this.state.clicked} country={dynNordicArray[this.state.index]} testArray={this.state.testArray} text={this.state.text} />
         </InversedWrapper>
       </Wrapper>
     );
