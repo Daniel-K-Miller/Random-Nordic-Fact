@@ -14,10 +14,6 @@ const LI = styled.li`
   width: 6em;
   text-decoration: none;
   cursor: pointer;
-        &:hover {
-            background-color: transparent;
-            color: white;
-        }
         ${props => props.testArray.finland === 1 && props.children === "Finland" && css`
             background-color: white;
             color: #003580;

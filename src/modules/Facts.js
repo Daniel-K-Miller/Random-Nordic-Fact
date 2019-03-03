@@ -45,7 +45,7 @@ class FactBox extends Component {
         // Makes it so code below will only execute when a new click event happens. Without it, any new props passed would trigger code which was undesirable e.g. reset button
         if (nextProps.clicked === true) {
             // Each array state starts with a full array and every iteration splices() an entry until there will be none left.
-            if (nextProps.country === "Iceland") {
+            if (nextProps.country === "Iceland" && nextProps.testArray.iceland === 1) {
                 // creates array that is used to setState
                 let array = [...this.state.icelandFacts];
                 // finds a random index for this iteration for use in picking a random item in the array
@@ -58,7 +58,7 @@ class FactBox extends Component {
                 array.splice(index, 1);
                 // if the temporal array has no items reset it back to the starting array and setState otherwise just remove an item and setState
                 array.length === 0 ? this.setState({ icelandFacts: fullIcelandFacts }) : this.setState({ icelandFacts: array });
-            } else if (nextProps.country === "Denmark") {
+            } else if (nextProps.country === "Denmark" && nextProps.testArray.denmark === 1) {
                 let array = [...this.state.denmarkFacts];
                 let index = Math.floor(Math.random() * array.length);
                 this.setState({
@@ -66,7 +66,7 @@ class FactBox extends Component {
                 });
                 array.splice(index, 1);
                 array.length === 0 ? this.setState({ icelandFacts: fullDenmarkFacts }) : this.setState({ denmarkFacts: array });
-            } else if (nextProps.country === "Norway") {
+            } else if (nextProps.country === "Norway" && nextProps.testArray.norway === 1) {
                 let array = [...this.state.norwayFacts];
                 let index = Math.floor(Math.random() * array.length);
                 this.setState({
@@ -74,7 +74,7 @@ class FactBox extends Component {
                 });
                 array.splice(index, 1);
                 array.length === 0 ? this.setState({ norwayFacts: fullNorwayFacts }) : this.setState({ norwayFacts: array });
-            } else if (nextProps.country === "Sweden") {
+            } else if (nextProps.country === "Sweden" && nextProps.testArray.sweden === 1) {
                 let array = [...this.state.swedenFacts];
                 let index = Math.floor(Math.random() * array.length);
                 this.setState({
@@ -82,7 +82,7 @@ class FactBox extends Component {
                 });
                 array.splice(index, 1);
                 array.length === 0 ? this.setState({ swedenFacts: fullSwedenFacts }) : this.setState({ swedenFacts: array });
-            } else if (nextProps.country === "Finland") {
+            } else if (nextProps.country === "Finland" && nextProps.testArray.finland === 1) {
                 let array = [...this.state.finlandFacts];
                 let index = Math.floor(Math.random() * array.length);
                 this.setState({
@@ -97,7 +97,7 @@ class FactBox extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.clicked === true && <Fact country={this.props.country}>{this.state.fact}</Fact>}
+                {this.props.clicked === true && <Fact country={this.props.country} testArray={this.props.testArray}>{this.state.fact}</Fact>}
             </React.Fragment>
         );
     }
