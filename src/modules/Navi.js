@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import ListItem from './list.js'
 
 const Nav = styled.nav`
@@ -21,7 +21,7 @@ class Navi extends Component {
         return (
             <Nav>
                 <ul>
-                    <ListItem nordicArray={this.props.nordicArray} testArray={this.props.testArray} onChange={this.props.onChange} />
+                    {this.props.nordicArray.map(x => <ListItem nordicArray={this.props.nordicArray} key={x} testArray={this.props.testArray} onChange={this.props.onChange} text={x} />)}
                 </ul>
             </Nav>
         );

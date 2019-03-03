@@ -43,7 +43,8 @@ const LI = styled.li`
 
 class ListItem extends Component {
     render() {
-        return this.props.nordicArray.map((x) => <LI key={x} testArray={this.props.testArray} onClick={this.props.onChange} >{x}</LI>);
+        // https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method change onClick to better version
+        return <LI key={this.props.id} id={this.props.id} testArray={this.props.testArray} onClick={() => this.props.onChange(this)}>{this.props.text}</LI>;
     }
 }
 

@@ -47,7 +47,7 @@ class App extends Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
-    this.handArray = this.handleArray.bind(this);
+    this.handleArray = this.handleArray.bind(this);
   }
   handleClick = () => {
     let random = Math.floor(Math.random() * nordicArray.length);
@@ -65,11 +65,10 @@ class App extends Component {
       styles: 'primary'
     })
   }
-  handleArray = () => {
-    this.setState(prevState => ({
-      testArray: { ...prevState.testArray, finland: 0 }
-    }))
-    console.log(this.state.testArray)
+  handleArray = (element) => {
+    if (element.props.text === "Finland") {
+      console.log("Hello Finland!");
+    }
   }
 
 
