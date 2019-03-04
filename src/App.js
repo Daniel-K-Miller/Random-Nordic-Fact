@@ -7,7 +7,8 @@ import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 
 const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
-let dynNordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
+let dynNordicArray = [];
+
 
 const Wrapper = styled.section`
   display: block;
@@ -51,42 +52,20 @@ class App extends Component {
     this.handleArray = this.handleArray.bind(this);
   }
   handleClick = () => {
-    // If country within testArray is equal to 1 push it to an array
-    if (this.state.testArray.sweden === 1 && !dynNordicArray.includes("Sweden")) {
-      dynNordicArray.push("Sweden")
-      // Else if state is 0 and it already exists remove it
-    } else if (this.state.testArray.sweden === 0 && dynNordicArray.includes("Sweden")) {
-      let index = dynNordicArray.indexOf("Sweden")
-      dynNordicArray.splice(index, 1)
-    }
-
-    if (this.state.testArray.finland === 1 && !dynNordicArray.includes("Finland")) {
-      dynNordicArray.push("Finland")
-    } else if (this.state.testArray.finland === 0 && dynNordicArray.includes("Finland")) {
-      let index = dynNordicArray.indexOf("Finland")
-      dynNordicArray.splice(index, 1)
-    }
-
-    if (this.state.testArray.iceland === 1 && !dynNordicArray.includes("Iceland")) {
-      dynNordicArray.push("Iceland")
-    } else if (this.state.testArray.iceland === 0 && dynNordicArray.includes("Iceland")) {
-      let index = dynNordicArray.indexOf("Iceland")
-      dynNordicArray.splice(index, 1)
-    }
-
-    if (this.state.testArray.norway === 1 && !dynNordicArray.includes("Norway")) {
-      dynNordicArray.push("Norway")
-    } else if (this.state.testArray.norway === 0 && dynNordicArray.includes("Norway")) {
-      let index = dynNordicArray.indexOf("Norway")
-      dynNordicArray.splice(index, 1)
-    }
-
-    if (this.state.testArray.denmark === 1 && !dynNordicArray.includes("Denmark")) {
-      dynNordicArray.push("Denmark")
-    } else if (this.state.testArray.denmark === 0 && dynNordicArray.includes("Denmark")) {
-      let index = dynNordicArray.indexOf("Denmark")
-      dynNordicArray.splice(index, 1)
-    }
+    // Creates copy of testArray within the state
+    let tempObj = { ...this.state.testArray }
+    // Iterate over each key within tempObj
+    Object.keys(tempObj).forEach(function eachKey(key) {
+      // Set to a new variable the key's name and capitalises it
+      let newKey = key.charAt(0).toUpperCase() + key.slice(1);
+      // Checking whether tempObj key value is positive && if the capitalised key exists within a blank dynamic array
+      if (tempObj[key] === 1 && !dynNordicArray.includes(newKey)) {
+        dynNordicArray.push(newKey);
+        // if the key is 0 and the dynamic array still includes the capitalised version remove it
+      } else if (tempObj[key] === 0 && dynNordicArray.includes(newKey)) {
+        dynNordicArray.splice(dynNordicArray.indexOf(newKey), 1)
+      }
+    })
 
     let random = Math.floor(Math.random() * dynNordicArray.length);
     this.setState({
