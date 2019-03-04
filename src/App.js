@@ -7,7 +7,7 @@ import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 
 const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
-let dynNordicArray = [];
+let dynNordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
 
 const Wrapper = styled.section`
   display: block;
@@ -105,6 +105,7 @@ class App extends Component {
   }
   handleArray = (element) => {
     this.setState({ clicked: false })
+    // Change logic here to aquate for when button is last one highlighted
     if (element.props.text === "Finland") {
       (this.state.testArray.finland === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 0 } }))
         : (this.state.testArray.finland === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 1 } }))
