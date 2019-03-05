@@ -6,7 +6,8 @@ import Name from './modules/Name.js'
 import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 
-const nordicArray = [];
+const nordicArray = ["denmark", "Finland", "Sweden", "Norway", "Iceland"];
+
 let dynNordicArray = [];
 
 
@@ -39,26 +40,44 @@ class App extends Component {
       text: 'Click here!',
       styles: 'primary',
       index: '',
-      testArray: {
-        denmark: 1,
-        finland: 1,
-        sweden: 1,
-        norway: 1,
-        iceland: 1
-      }
+      testArray: {}
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleArray = this.handleArray.bind(this);
   }
   componentWillMount() {
-    // Creates copy of testArray that is in state
-    let tempObj = { ...this.state.testArray }
-    // Creates an initial array from testArray that then is used to create the Navi buttons
-    Object.keys(tempObj).forEach(function eachKey(key) {
-      nordicArray.push(key.charAt(0).toUpperCase() + key.slice(1));
+
+    // variable used to setState at end of componentWillMount()
+    let tempObj = {};
+    nordicArray.forEach(function eachKey(key) {
+      // Regex to check whether each item in nordArray starts with lowerCase initially
+      const regex = /^[a-z]/
+      // variable to be called later if item does not begin with lowerCase letter
+      let newKey = key.charAt(0).toLowerCase() + key.slice(1);
+      // Checking whether item in array does not begin with lowerCase
+      if (!regex.test(key)) {
+        // Set item to start with lowerCase letter
+        nordicArray[nordicArray.indexOf(key)] = newKey;
+        // set item's value to 1
+        tempObj[newKey] = 1;
+        // implement key & value pair into tempObj
+        Object.assign(tempObj, tempObj[newKey])
+        // changes the item back to begin with an upperCase letter (array is used later for names within Navi.js so setting to upperCase is needed)
+        nordicArray[nordicArray.indexOf(newKey)] = key;
+      } else if (regex.test(key)) {
+        // set item's key to 1
+        tempObj[key] = 1;
+        // implement key & value pair into tempObj
+        Object.assign(tempObj, tempObj[key])
+        // changes the item to begin with an upperCase letter (array is used later for names within Navi.js so setting to upperCase is needed)
+        nordicArray[nordicArray.indexOf(key)] = key.charAt(0).toUpperCase() + key.slice(1);
+      }
     })
+    // use tempObj to finally set the state
+    this.setState({ testArray: tempObj })
   }
+
   handleClick = () => {
     // Creates copy of testArray that is in state
     let tempObj = { ...this.state.testArray }

@@ -65,7 +65,8 @@ class FactBox extends Component {
                     fact: array[index],
                 });
                 array.splice(index, 1);
-                array.length === 0 ? this.setState({ icelandFacts: fullDenmarkFacts }) : this.setState({ denmarkFacts: array });
+                array.length === 0 ? this.setState({ denmarkFacts: fullDenmarkFacts }) : this.setState({ denmarkFacts: array });
+
             } else if (nextProps.country === "Norway" && nextProps.testArray.norway === 1) {
                 let array = [...this.state.norwayFacts];
                 let index = Math.floor(Math.random() * array.length);
@@ -74,6 +75,7 @@ class FactBox extends Component {
                 });
                 array.splice(index, 1);
                 array.length === 0 ? this.setState({ norwayFacts: fullNorwayFacts }) : this.setState({ norwayFacts: array });
+
             } else if (nextProps.country === "Sweden" && nextProps.testArray.sweden === 1) {
                 let array = [...this.state.swedenFacts];
                 let index = Math.floor(Math.random() * array.length);
