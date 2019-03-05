@@ -6,7 +6,7 @@ import Name from './modules/Name.js'
 import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 
-const nordicArray = ["Denmark", "Norway", "Sweden", "Finland", "Iceland"];
+const nordicArray = [];
 let dynNordicArray = [];
 
 
@@ -40,9 +40,9 @@ class App extends Component {
       styles: 'primary',
       index: '',
       testArray: {
+        denmark: 1,
         finland: 1,
         sweden: 1,
-        denmark: 1,
         norway: 1,
         iceland: 1
       }
@@ -51,8 +51,16 @@ class App extends Component {
     this.handleReset = this.handleReset.bind(this);
     this.handleArray = this.handleArray.bind(this);
   }
+  componentWillMount() {
+    // Creates copy of testArray that is in state
+    let tempObj = { ...this.state.testArray }
+    // Creates an initial array from testArray that then is used to create the Navi buttons
+    Object.keys(tempObj).forEach(function eachKey(key) {
+      nordicArray.push(key.charAt(0).toUpperCase() + key.slice(1));
+    })
+  }
   handleClick = () => {
-    // Creates copy of testArray within the state
+    // Creates copy of testArray that is in state
     let tempObj = { ...this.state.testArray }
     // Iterate over each key within tempObj
     Object.keys(tempObj).forEach(function eachKey(key) {
