@@ -10,7 +10,6 @@ const nordicArray = ["denmark", "Finland", "Sweden", "Norway", "Iceland"];
 
 let dynNordicArray = [];
 
-
 const Wrapper = styled.section`
   display: block;
   text-align: center;
@@ -110,29 +109,24 @@ class App extends Component {
     })
   }
   handleArray = (element) => {
+    // Changes state of clicked so within facts.js with a method the facts are not re-evaluated
     this.setState({ clicked: false })
-    // Change logic here to aquate for when button is last one highlighted
-    if (element.props.text === "Finland") {
-      (this.state.testArray.finland === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 0 } }))
-        : (this.state.testArray.finland === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, finland: 1 } }))
-          : this.setState(prevState => ({ testArray: { ...prevState.testArray } }))
-    } else if (element.props.text === "Sweden") {
-      (this.state.testArray.sweden === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, sweden: 0 } }))
-        : (this.state.testArray.sweden === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, sweden: 1 } }))
-          : this.setState(prevState => ({ testArray: { ...prevState.testArray } }))
-    } else if (element.props.text === "Iceland") {
-      (this.state.testArray.iceland === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, iceland: 0 } }))
-        : (this.state.testArray.iceland === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, iceland: 1 } }))
-          : this.setState(prevState => ({ testArray: { ...prevState.testArray } }))
-    } else if (element.props.text === "Norway") {
-      (this.state.testArray.norway === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, norway: 0 } }))
-        : (this.state.testArray.norway === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, norway: 1 } }))
-          : this.setState(prevState => ({ testArray: { ...prevState.testArray } }))
-    } else if (element.props.text === "Denmark") {
-      (this.state.testArray.denmark === 1) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, denmark: 0 } }))
-        : (this.state.testArray.denmark === 0) ? this.setState(prevState => ({ testArray: { ...prevState.testArray, denmark: 1 } }))
-          : this.setState(prevState => ({ testArray: { ...prevState.testArray } }))
-    }
+    // tempObj copy of testArray in state, used again at the end of this method
+    let tempObj = { ...this.state.testArray };
+    // tempVar is a first character lowerCase copy of the text used for buttons so they can be compared to the lowerCase state
+    let tempVar = element.props.text.charAt(0).toLowerCase() + element.props.text.slice(1);
+    // iterate through tempObj to check whether the text within a button in list.js matches a state value
+    Object.keys(tempObj).forEach(function eachKey(key) {
+      // if there is a match and the previous state was clicked set that object's current key value to 0 showing it has now been deselected
+      if (key === tempVar && tempObj[key] === 1) {
+        tempObj[key] = 0;
+        // if there is a match and the previous state was not clicked set that object's current key value to 0 showing it has been selected
+      } else if (key === tempVar && tempObj[key] === 0) {
+        tempObj[key] = 1;
+      }
+    })
+    // finally set the state using the tempObj variable at the start of the method
+    this.setState({ testArray: tempObj })
   }
 
   render() {
