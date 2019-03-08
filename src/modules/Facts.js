@@ -44,6 +44,19 @@ class FactBox extends Component {
     componentWillReceiveProps(nextProps) {
         // Makes it so code below will only execute when a new click event happens. Without it, any new props passed would trigger code which was undesirable e.g. reset button
         if (nextProps.clicked === true) {
+            // TODO finish editing algorithm below so that the text finland is found within any of the tempState
+            let tempState = { ...this.state }
+            Object.keys(tempState).forEach(function eachKey(key) {
+                console.log(key);
+            })
+            Object.keys(nextProps.testArray).forEach(function eachKey(key) {
+                if (nextProps.testArray[key] === 1) {
+
+
+                }
+            })
+
+
             // Each array state starts with a full array and every iteration splices() an entry until there will be none left.
             if (nextProps.country === "Iceland" && nextProps.testArray.iceland === 1) {
                 // creates array that is used to setState
