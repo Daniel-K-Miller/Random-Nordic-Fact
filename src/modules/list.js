@@ -13,37 +13,29 @@ const LI = styled.li`
   margin: 1em;
   width: 6em;
   text-decoration: none;
+  opacity: .5;
   cursor: pointer;
-        ${props => props.testArray.finland === 1 && props.children === "Finland" && css`
-            background-color: white;
-            color: #003580;
-        `}
-        ${props => props.testArray.norway === 1 && props.children === "Norway" && css`
-            color: #002868;
-            background: #EF2B2D;
-        `}
-        ${props => props.testArray.sweden === 1 && props.children === "Sweden" && css`
-            color: #FECC00;
-            background: #006AA7;
-        `}
-        ${props => props.testArray.iceland === 1 && props.children === "Iceland" && css`
+        ${props => props.styles === 1 && css`
+            background-color: #4d4d4d;
             color: white;
-            background: #02529C;
-        `}
-        ${props => props.testArray.denmark === 1 && props.children === "Denmark" && css`
-            color: white;
-            background: #C60C30;
+            opacity: 1;
         `}
     }
 `
 
 class ListItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            styles: 1
+        }
+    }
     handleClick = () => {
         this.props.onChange(this)
+        this.state.styles === 1 ? this.setState({ styles: 0 }) : this.setState({ styles: 1 });
     }
     render() {
-        // https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method change onClick to better version
-        return <LI key={this.props.id} id={this.props.id} testArray={this.props.testArray} onClick={this.handleClick}>{this.props.text}</LI>;
+        return <LI key={this.props.id} id={this.props.id} testArray={this.props.testArray} onClick={this.handleClick} styles={this.state.styles}>{this.props.text}</LI>;
     }
 }
 
