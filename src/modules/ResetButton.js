@@ -6,10 +6,10 @@ const Button = styled.a`
   margin: auto;
   padding: 0;
   display: flex;
-  font-size: 1.2em;
+  font-size: 1em;
   background: rosybrown;
   border: 2px solid rosybrown;
-  border-radius: 3px;
+  border-radius: 50px;
   text-align: center;
   width: 20px;
   height: 20px;
@@ -23,10 +23,18 @@ const Button = styled.a`
   text-align: center;
   vertical-align: middle;
   line-height: 20px;
+  user-select: none;
   :hover {
     background: red;
     border: 2px solid red;
     opacity: 1;
+  }
+  p {
+    color: black;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
   }
 `
 
@@ -35,8 +43,8 @@ class ResetButton extends Component {
     return (
       <React.Fragment>
         {this.props.text === "Click again!" && <Button onClick={this.props.onChange}>
-          x
-          </Button>}
+          <p>x</p>
+        </Button>}
       </React.Fragment>
     );
   }

@@ -6,37 +6,42 @@ const NameCom = styled.h1`
   padding: .5em 1em;
   font-size: 1.2em;
   background: transparent;
-  border: 2px solid white;
-  border-radius: 3px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   text-align: center;
   display: inline-block;
-  margin: 1em;
+  margin: 0 auto;
+  right: 250px;
+  position: relative;
   width: 6em;
   text-decoration: none;
   ${props => props.styles === "Finland" && css`
     color: #003580;
     background: white;
-    border: 2px solid white;
+    border-color: white;
   `}
   ${props => props.styles === "Norway" && css`
     color: #002868;
     background: #EF2B2D;
-    border: 2px solid white;
+    border-color: white;
   `}
   ${props => props.styles === "Sweden" && css`
     color: #FECC00;
     background: #006AA7;
-    border: 2px solid #006AA7;
+    border-color: #006AA7;
   `}
   ${props => props.styles === "Denmark" && css`
     color: white;
     background: #C60C30;
-    border: 2px solid #C60C30;
+    border-color: #C60C30;
   `}
   ${props => props.styles === "Iceland" && css`
     color: white;
     background: #02529C;
-    border: 2px solid #DC1E35;
+    border-color: #DC1E35;
   `}
   :hover {
       animation: myMove 2s ease-in-out;

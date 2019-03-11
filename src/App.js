@@ -5,6 +5,7 @@ import ResetButton from './modules/ResetButton.js'
 import Name from './modules/Name.js'
 import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
+import Header from './modules/Title.js'
 
 // Starting array that will be used as the centrepiece of the app. This information will be used to render the buttons within navi.js + list.js
 // and will also be used within the componentDidMount to set objectFromArray state, this data is the input to the whole application
@@ -21,6 +22,7 @@ const Wrapper = styled.section`
   height: 100vh;
   background-color: #262626;
 `
+
 const InnerWrapper = styled.article`
   display: flex;
   margin: auto;
@@ -30,8 +32,13 @@ const InnerWrapper = styled.article`
 const InversedWrapper = styled.article`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 1em auto;
   align-items: center;
+  position: relative;
+`
+
+const NaviWrapper = styled.article`
+  background-color: #333333;
 `
 
 class App extends Component {
@@ -137,7 +144,10 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
+        <Header />
+        <NaviWrapper>
+          <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
+        </NaviWrapper>
         <InnerWrapper>
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} text={this.state.text} />
@@ -146,6 +156,7 @@ class App extends Component {
           <Name clicked={this.state.clicked} country={dynamicArray[this.state.index]} text={this.state.text} />
           <FactBox clicked={this.state.clicked} country={dynamicArray[this.state.index]} testArray={this.state.objectFromArray} text={this.state.text} />
         </InversedWrapper>
+        {/* TODO add footer here */}
       </Wrapper>
     );
   }

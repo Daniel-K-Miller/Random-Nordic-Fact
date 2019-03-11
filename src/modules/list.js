@@ -2,25 +2,26 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
 const LI = styled.li`
-        color: white;
-  padding: .5em 1em;
-  font-size: 1.2em;
-  background: transparent;
-  border: 2px solid white;
-  border-radius: 3px;
-  text-align: center;
-  display: inline-block;
-  margin: 1em;
-  width: 6em;
-  text-decoration: none;
-  opacity: .5;
-  cursor: pointer;
+    color: white;
+    padding: .5em 1em;
+    font-size: 1.2em;
+    background: #262626;
+    border: 2px solid #666666;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    margin: 1em;
+    width: 6em;
+    text-decoration: none;
+    opacity: .2;
+    user-select: none;
+    cursor: pointer;
         ${props => props.styles === 1 && css`
-            background-color: #4d4d4d;
+            background-color: #1a1a1a;
             color: white;
+            border-color: #1a1a1a;
             opacity: 1;
         `}
-    }
 `
 
 class ListItem extends Component {

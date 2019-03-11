@@ -7,9 +7,8 @@ const Fact = styled.p`
   font-size: 1.2em;
   background: #1a1a1a;
   border-radius: 3px;
-  text-align: center;
+  text-align: justify;
   display: inline-block;
-  margin: .2em;
   width: 700px;
   text-decoration: none;
 `
