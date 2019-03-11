@@ -7,6 +7,9 @@ const Nav = styled.nav`
     color: white;
     color: white;
     margin: 0 100px;
+    background-color: #333333;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     ul {
         display: flex;
         flex-direction: row;

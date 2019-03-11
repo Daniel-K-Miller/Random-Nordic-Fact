@@ -9,6 +9,7 @@ const Nav = styled.footer`
         justify-content: center;
         background-color: #0d0d0d;
         position: absolute;
+        padding: 1em 0;
         bottom: 0;
     ul {
         padding: 1em 0;
@@ -35,7 +36,7 @@ const Nav = styled.footer`
         align-items: flex-end;
         bottom: 0;
         left: 0;
-        margin: 0 0 1em 7em;
+        margin: 0 0 2em 3em;
         color: #595959;
     }
 `

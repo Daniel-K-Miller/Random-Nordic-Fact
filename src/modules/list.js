@@ -18,7 +18,7 @@ const LI = styled.li`
     cursor: pointer;
         ${props => props.styles === 1 && css`
             background-color: #1a1a1a;
-            color: white;
+            color: #ffffb3;
             border-color: #1a1a1a;
             opacity: 1;
         `}

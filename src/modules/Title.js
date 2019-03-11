@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Title = styled.header`
-@import url('https://fonts.googleapis.com/css?family=Oswald');
-  color: #595959;
+@import url('https://fonts.googleapis.com/css?family=Lato');
+  color: white;
   display: flex;
   justify-content: center;
-  font-family: 'Oswald';
-  font-size: 2.3em;
-  padding: .5em;
+  font-family: 'Lato';
+  font-weight: bold;
+  font-size: 2em;
+  padding: .7em 0;
   background: #0d0d0d;
 `
 

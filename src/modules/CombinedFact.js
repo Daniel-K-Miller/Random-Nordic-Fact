@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Name from './Name.js'
-import FactBox from './Facts.js'
+import Name from './combinedfacts/Name.js'
+import FactBox from './combinedfacts/Facts.js'
 
 const Wrapper = styled.article`
   display: flex;

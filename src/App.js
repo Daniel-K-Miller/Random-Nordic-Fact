@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PrimButton from './modules/PrimButton.js';
-import ResetButton from './modules/ResetButton.js'
-import Navi from './modules/Navi.js'
-import Header from './modules/Title.js'
-import Footer from './modules/Footer.js'
-import Combined from './modules/CombinedFact.js'
+import Navi from './modules/Navi.js';
+import Header from './modules/Title.js';
+import Footer from './modules/Footer.js';
+import Combined from './modules/CombinedFact.js';
+import Buttons from './modules/Buttons.js';
+import PastFacts from './modules/PastFacts.js'
 
 // Starting array that will be used as the centrepiece of the app. This information will be used to render the buttons within navi.js + list.js
 // and will also be used within the componentDidMount to set objectFromArray state, this data is the input to the whole application
@@ -13,6 +13,8 @@ const originArray = ["denmark", "Finland", "Sweden", "Norway", "Iceland"];
 // created within handleClick() method, used by random number generator to pick a random item and passes data to Facts.js + Name.js
 // DO NOT INPUT VALUES DIRECTLY! Array will be created automatically from originArray's items
 let dynamicArray = [];
+
+let prevStateArray = []
 
 const Wrapper = styled.section`
   display: block;
@@ -24,17 +26,6 @@ const Wrapper = styled.section`
   background-color: #262626;
 `
 
-const InnerWrapper = styled.article`
-  display: flex;
-  margin: auto;
-  width: 200px;
-  position: relative;
-`
-
-const NaviWrapper = styled.article`
-  background-color: #333333;
-`
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -43,6 +34,7 @@ class App extends Component {
       text: 'Click here!',
       styles: 'primary',
       index: '',
+      lastState: [],
       objectFromArray: {}
     }
     this.handleClick = this.handleClick.bind(this);
@@ -82,6 +74,16 @@ class App extends Component {
   }
 
   handleClick = () => {
+    // Used for setting a previous state so prevState buttons render
+    let prevState = dynamicArray[this.state.index]
+    if (prevState !== undefined) {
+      prevStateArray.unshift(prevState)
+    }
+    if (prevStateArray.length > 3) {
+      prevStateArray.pop();
+    }
+    this.setState({ lastState: prevStateArray });
+
     // Creates copy of objectFromArray that is in state
     let tempObj = { ...this.state.objectFromArray }
     // Iterate over each key within tempObj
@@ -139,15 +141,10 @@ class App extends Component {
     return (
       <Wrapper>
         <Header />
-        <NaviWrapper>
-          <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
-        </NaviWrapper>
-        <InnerWrapper>
-          <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
-          <ResetButton clicked={this.state.clicked} onChange={this.handleReset} text={this.state.text} />
-        </InnerWrapper>
+        <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
+        <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} country={dynamicArray[this.state.index]} text={this.state.text} testArray={this.state.objectFromArray} />
-        {/* TODO add footer here */}
+        <PastFacts lastState={this.state.lastState} />
         <Footer />
       </Wrapper>
     );
