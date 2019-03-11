@@ -6,6 +6,7 @@ import Name from './modules/Name.js'
 import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 import Header from './modules/Title.js'
+import Footer from './modules/Footer.js'
 
 // Starting array that will be used as the centrepiece of the app. This information will be used to render the buttons within navi.js + list.js
 // and will also be used within the componentDidMount to set objectFromArray state, this data is the input to the whole application
@@ -20,6 +21,7 @@ const Wrapper = styled.section`
   margin: 0 auto;
   width: 1000px;
   height: 100vh;
+  position: relative;
   background-color: #262626;
 `
 
@@ -157,6 +159,7 @@ class App extends Component {
           <FactBox clicked={this.state.clicked} country={dynamicArray[this.state.index]} testArray={this.state.objectFromArray} text={this.state.text} />
         </InversedWrapper>
         {/* TODO add footer here */}
+        <Footer />
       </Wrapper>
     );
   }
