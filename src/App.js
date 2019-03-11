@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PrimButton from './modules/PrimButton.js';
 import ResetButton from './modules/ResetButton.js'
-import Name from './modules/Name.js'
-import FactBox from './modules/Facts.js'
 import Navi from './modules/Navi.js'
 import Header from './modules/Title.js'
 import Footer from './modules/Footer.js'
+import Combined from './modules/CombinedFact.js'
 
 // Starting array that will be used as the centrepiece of the app. This information will be used to render the buttons within navi.js + list.js
 // and will also be used within the componentDidMount to set objectFromArray state, this data is the input to the whole application
@@ -29,13 +28,6 @@ const InnerWrapper = styled.article`
   display: flex;
   margin: auto;
   width: 200px;
-  position: relative;
-`
-const InversedWrapper = styled.article`
-  display: flex;
-  flex-direction: column;
-  margin: 1em auto;
-  align-items: center;
   position: relative;
 `
 
@@ -154,10 +146,7 @@ class App extends Component {
           <PrimButton clicked={this.state.clicked} text={this.state.text} styles={this.state.styles} onChange={this.handleClick} />
           <ResetButton clicked={this.state.clicked} onChange={this.handleReset} text={this.state.text} />
         </InnerWrapper>
-        <InversedWrapper>
-          <Name clicked={this.state.clicked} country={dynamicArray[this.state.index]} text={this.state.text} />
-          <FactBox clicked={this.state.clicked} country={dynamicArray[this.state.index]} testArray={this.state.objectFromArray} text={this.state.text} />
-        </InversedWrapper>
+        <Combined clicked={this.state.clicked} country={dynamicArray[this.state.index]} text={this.state.text} testArray={this.state.objectFromArray} />
         {/* TODO add footer here */}
         <Footer />
       </Wrapper>

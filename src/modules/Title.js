@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const Title = styled.header`
 @import url('https://fonts.googleapis.com/css?family=Oswald');
-  color: white;
+  color: #595959;
   display: flex;
   justify-content: center;
   font-family: 'Oswald';
   font-size: 2.3em;
   padding: .5em;
-  background: linear-gradient(-90deg, #262626, #1a1a1a);
+  background: #0d0d0d;
 `
 
 class Random extends Component {

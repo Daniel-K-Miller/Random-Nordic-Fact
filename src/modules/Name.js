@@ -18,6 +18,7 @@ const NameCom = styled.h1`
   position: relative;
   width: 6em;
   text-decoration: none;
+  user-select: none;
   ${props => props.styles === "Finland" && css`
     color: #003580;
     background: white;

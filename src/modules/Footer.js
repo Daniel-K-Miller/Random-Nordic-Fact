@@ -7,7 +7,7 @@ const Nav = styled.footer`
         margin: 0 auto;
         display: flex;
         justify-content: center;
-        background-color: #f2f2f2;
+        background-color: #0d0d0d;
         position: absolute;
         bottom: 0;
     ul {
@@ -21,6 +21,8 @@ const Nav = styled.footer`
             list-style-type: none;
             text-decoration: none;
             user-select: none;
+            filter: invert(100);
+            opacity: .2;
             &:hover {
                 opacity: .8;
                 animation: all .3 ease-in-out;
@@ -34,7 +36,7 @@ const Nav = styled.footer`
         bottom: 0;
         left: 0;
         margin: 0 0 1em 7em;
-        color: #1a1a1a;
+        color: #595959;
     }
 `
 
