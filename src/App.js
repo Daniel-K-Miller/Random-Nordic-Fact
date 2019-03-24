@@ -15,6 +15,7 @@ const originArray = ["denmark", "Finland", "Sweden", "Norway", "Iceland"];
 let dynamicArray = [];
 
 let prevStateArray = []
+let prevFactArray = [];
 
 let fullFinlandFacts = [];
 let fullSwedenFacts = [];
@@ -40,8 +41,10 @@ class App extends Component {
       text: 'Click here!',
       styles: 'primary',
       index: '',
-      lastState: [],
+      lastCountries: [],
+      lastFacts: [],
       objectFromArray: {},
+      country: '',
       fact: '',
       finlandFacts: [`Finland joined the European Union in 1995.`, `The company Nokia got its name from the Town in Finland.`, `Nokia was founded in 1865 as a pulp mill and later transitioned onto electronics.`, `Finland was ranked as the #1 happiest place to live in the world according to the UN’s World Happiest Report 2018.`, `Speeding tickets in Finland are based on total income of the violator instead of a universal set fee.`, `Finland adopted the Euro on 1st January 1999 and abandoned the Finnish Markka on 28th February 2002.`, `The average Finn consumes 12 Kilos of coffee each year.`, `Finland produces the greatest number of heavy-metal bands per capita.`, `In 2006 Finland won Eurovision song contest with the band Lordi performing the song ‘hard rock hallelujah’.`, `Finland has come last in the Eurovision Song Contest 10 times (1963, 1965, 1968, 1980, 1982, 1990, 1992, 1996, 2009, 2015).`, `The population of Finland in 2017 was 5.5 million.`, `It is estimated that there are 2 million saunas in Finland.`, `Finnish is a Uralic language with Estonian being the closest related language.`, `In 1906, Finland was the first European country to allow all women to vote.`, `Finland elected its first female prime minister (Anneli Jäätteenmäki) in April 2003, making it the only country in Europe with both a female president (Tarja Halonen) and prime minister.`, `The operating system Linux was created by Finn Linus Torvalds in 1991. Linus also created the version control system Git in 2005.`, `Finn Kimi Räikkönnen won the 2007 F1 World Championship with 110 points.`, `The capital of Finland is Helsinki with a population of 631,695 in 2017.`, `Finland’s national animal is the brown bear`],
       swedenFacts: [`Sweden joined the European Union in 1995.`, `Sweden is owed approximately €254,000,000 by North Korea. This is due to Kim Il-sung striking a deal to buy 1000 Volvo cars from the Swedish government in 1974 and not paying for the goods.`, `Sweden is the fifth biggest country in Europe (447,435 km2m), and also has the second lowest population per square kilometre in Europe.`, `Sweden has won the Eurovision Song Contest 6 times (1974, 1984, 1991, 1991, 2012, 2015) making it the second highest winning country.`, `Sweden has come last in the Eurovision song contest 2 times (1963, 1977).`, `Sweden has produced multiple platinum selling artists. The most notable being: ABBA (375 million album/single sales), Roxette (75 million album/single sales), Ace of Base (50 million album/single sales), Avicii (30 million album/single sales), Europe (23 million album/single sales).`, `Sweden has the greatest number of McDonald’s restaurants per capita.`, `Sweden is the only country in which donations make up more than 1% of the country’s GDP.`, `The Swedish music group ABBA had to negotiate naming rights with the Abba Seafood Company which was founded in 1838.`, `The population of Sweden was 9.9 million in 2017.`, `The currency used in Sweden is Swedish crowns (SEK).`, `The capital of Sweden is Stockholm with a population of 960,031 in 2017.`, `Swede Daniel Ek founded the streaming service Spotify in 2008.`, `Three Swedish companies earned a spot in Fortunes Magazines Global 500 in 2017. Volvo (301), Ericsson (419), and H&M (482).`, `The Nobel Prize award is named after Swedish scientist Alfred Nobel. Nobel’s most famous invention was dynamite.`, `Sweden has not participated in any war for almost two centuries.`, `Swedish parents are entitled to 480 days of paid parental leave—and of those, 60 days are reserved for the father. In 2012, dads used 24% of the total parental leave.`, `Sweden’s national animal is the Eurasian Elk`],
@@ -83,7 +86,6 @@ class App extends Component {
     })
     // use tempObj to finally set the state
     this.setState({ objectFromArray: tempObj })
-
     fullFinlandFacts = [...this.state.finlandFacts];
     fullSwedenFacts = [...this.state.swedenFacts];
     fullNorwayFacts = [...this.state.norwayFacts];
@@ -92,15 +94,19 @@ class App extends Component {
   }
 
   handleClick = () => {
-    // Used for setting a previous state so prevState buttons render
+    
+    // An array created consisting of the past 3 country's name. Used by PastFacts Component to map the past 3 facts. Array starts empty then fills over the past 3 countries names.
     let prevState = dynamicArray[this.state.index]
+    let prevFact = this.state.fact;
     if (prevState !== undefined) {
       prevStateArray.unshift(prevState)
+      prevFactArray.unshift(prevFact);
     }
     if (prevStateArray.length > 3) {
       prevStateArray.pop();
+      prevFactArray.pop();
     }
-    this.setState({ lastState: prevStateArray });
+    this.setState({ lastCountries: prevStateArray, lastFacts: prevFactArray });
 
     // Creates copy of objectFromArray that is in state
     let tempObj = { ...this.state.objectFromArray }
@@ -116,6 +122,9 @@ class App extends Component {
         dynamicArray.splice(dynamicArray.indexOf(newKey), 1)
       }
     })
+
+    
+
     // Expression used to create an index to be used with dynamicArray to select a random item
     let random = Math.floor(Math.random() * dynamicArray.length);
     this.setState({
@@ -124,8 +133,9 @@ class App extends Component {
       styles: 'secondary',
       index: random
     });
+    let tempCountry = dynamicArray[random];
 
-    let tempCountry = dynamicArray[this.state.index];
+    this.setState({ country: tempCountry })
 
     // variable to be used to gets all of the state to then be called to look for certain state key
     let tempState = { ...this.state };
@@ -133,6 +143,7 @@ class App extends Component {
 
     // putting the variable to start with lowerCase so it can be matched against a state key
     if (tempCountry) {
+      
       tempCountry = tempCountry.charAt(0).toLowerCase() + tempCountry.slice(1)
       // blank array that will be filled
       let array = []
@@ -144,7 +155,6 @@ class App extends Component {
         }
         return undefined
       })
-      console.log(array);
       // randomly select an item from the area getting a random quote
       let index = Math.floor(Math.random() * array.length);
       // set the State based off the random country passed down from App.js and selectected random quote from that country's array
@@ -204,8 +214,8 @@ class App extends Component {
         <Header />
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
         <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
-        <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} />
-        <PastFacts lastState={this.state.lastState} />
+        <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} />
+        <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} />
         <Footer />
       </Wrapper>
     );
