@@ -27,15 +27,17 @@ const PastFact = styled.h1`
 `
 
 class PastFacts extends Component {
-
-    handleMouseOver = () => {
-        console.log("Hello!")
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0
+        }
     }
-    
+
     render() {
         return (
             <Wrapper>
-                {this.props.lastCountries.map(x => (<PastFact key={uuid.v4()} onMouseOver={this.handleMouseOver} >{x}</PastFact>))}
+                {this.props.lastCountries.map((x, index) => (<PastFact key={uuid.v4()} onMouseEnter={() => this.props.handleMouseOver(index)} onMouseLeave={this.props.handleMouseOut} fact={this.props.lastFacts[index]}>{x}</PastFact>))}
             </Wrapper>
         )
     }

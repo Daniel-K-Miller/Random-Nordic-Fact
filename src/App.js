@@ -23,6 +23,9 @@ let fullNorwayFacts = [];
 let fullDenmarkFacts = [];
 let fullIcelandFacts = [];
 
+let fact = '';
+let country = '';
+
 const Wrapper = styled.section`
   display: block;
   text-align: center;
@@ -55,6 +58,8 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleArray = this.handleArray.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
   }
 
   componentDidMount() {
@@ -94,10 +99,9 @@ class App extends Component {
   }
 
   handleClick = () => {
-    
     // An array created consisting of the past 3 country's name. Used by PastFacts Component to map the past 3 facts. Array starts empty then fills over the past 3 countries names.
     let prevState = dynamicArray[this.state.index]
-    let prevFact = this.state.fact;
+    let prevFact = this.state.fact.slice(0);
     if (prevState !== undefined) {
       prevStateArray.unshift(prevState)
       prevFactArray.unshift(prevFact);
@@ -208,6 +212,20 @@ class App extends Component {
     this.setState({ objectFromArray: tempObj })
   }
 
+  handleMouseOver = (index) => {
+    // BUG OCCURING WHEN IN REGISTERS TWICE AND NO EXIT, NEED TO FIX AS IT STICKS THE DISPLAYED FACT AND NAME
+    console.log("in")
+    fact = this.state.fact.slice(0);
+    country = this.state.country.slice(0);
+    this.setState({ fact: prevFactArray[index], country: prevStateArray[index]})
+
+  }
+  handleMouseOut = () => {
+    console.log("out")
+    this.setState({ fact: fact, country: country })
+  }
+  
+
   render() {
     return (
       <Wrapper>
@@ -215,7 +233,7 @@ class App extends Component {
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
         <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} />
-        <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} />
+        <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} handleMouseOver={this.handleMouseOver} handleMouseOut={this.handleMouseOut} />
         <Footer />
       </Wrapper>
     );
