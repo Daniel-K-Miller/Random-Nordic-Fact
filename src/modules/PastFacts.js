@@ -3,11 +3,15 @@ import styled from 'styled-components';
 import uuid from 'uuid';
 
 const Wrapper = styled.article`
-    background-color: red;
+    background-color: ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 500px;
+    right: 0;
+    left: 0;
 `
 const PastFact = styled.h1`
   color: white;
@@ -24,6 +28,10 @@ const PastFact = styled.h1`
     opacity: .2;
     user-select: none;
     flex-direction: row;
+    :hover {
+        background-color: white;
+        color: #262626;
+    }
 `
 
 class PastFacts extends Component {

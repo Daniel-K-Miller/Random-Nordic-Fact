@@ -23,7 +23,7 @@ let fullNorwayFacts = [];
 let fullDenmarkFacts = [];
 let fullIcelandFacts = [];
 
-let fact = '';
+let fact = undefined;
 let country = '';
 
 const Wrapper = styled.section`
@@ -127,7 +127,7 @@ class App extends Component {
       }
     })
 
-    
+
 
     // Expression used to create an index to be used with dynamicArray to select a random item
     let random = Math.floor(Math.random() * dynamicArray.length);
@@ -147,7 +147,7 @@ class App extends Component {
 
     // putting the variable to start with lowerCase so it can be matched against a state key
     if (tempCountry) {
-      
+
       tempCountry = tempCountry.charAt(0).toLowerCase() + tempCountry.slice(1)
       // blank array that will be filled
       let array = []
@@ -215,16 +215,22 @@ class App extends Component {
   handleMouseOver = (index) => {
     // BUG OCCURING WHEN IN REGISTERS TWICE AND NO EXIT, NEED TO FIX AS IT STICKS THE DISPLAYED FACT AND NAME
     console.log("in")
-    fact = this.state.fact.slice(0);
-    country = this.state.country.slice(0);
-    this.setState({ fact: prevFactArray[index], country: prevStateArray[index]})
-
+    if (this.state.fact !== fact && fact !== undefined) {
+      console.log("BUG")
+      // BUG FIXED! HOORAY!
+      this.setState({ fact: fact, country: country })
+    } else {
+      fact = this.state.fact.slice(0);
+      country = this.state.country.slice(0);
+      this.setState({ fact: prevFactArray[index], country: prevStateArray[index] });
+    }
   }
+
   handleMouseOut = () => {
     console.log("out")
     this.setState({ fact: fact, country: country })
   }
-  
+
 
   render() {
     return (
