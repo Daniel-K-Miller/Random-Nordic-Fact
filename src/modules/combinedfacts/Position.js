@@ -11,11 +11,13 @@ const PositionLabel = styled.h1`
   display: inline-block;
   margin: 0 auto;
   top: 0;
-  right: 250px;
+  right: max-content;
   position: absolute;
-  width: 6em;
+  width: auto;
   text-decoration: none;
   user-select: none;
+  text-align:center;
+  left: max-content;
 `
 
 class Position extends Component {

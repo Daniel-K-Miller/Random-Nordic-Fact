@@ -35,13 +35,6 @@ const PastFact = styled.h1`
 `
 
 class PastFacts extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            index: 0
-        }
-    }
-
     render() {
         return (
             <Wrapper>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ListItem from './list.js'
+import ListItem from './navi/list.js'
 
 const Nav = styled.nav`
     display: flex;

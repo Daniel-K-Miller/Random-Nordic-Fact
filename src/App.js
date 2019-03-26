@@ -27,6 +27,8 @@ let fact = undefined;
 let country = '';
 let posOfFact = '';
 
+let arrayTotalValues = 5;
+
 const Wrapper = styled.section`
   display: block;
   text-align: center;
@@ -194,6 +196,7 @@ class App extends Component {
   }
 
   handleArray = (element) => {
+    console.log(arrayTotalValues)
     // Changes state of clicked so within facts.js with a method the facts are not re-evaluated
     this.setState({ clicked: false })
     // tempObj copy of objectFromArray in state, used again at the end of this method
@@ -211,7 +214,11 @@ class App extends Component {
       }
     })
     // finally set the state using the tempObj variable at the start of the method
+
     this.setState({ objectFromArray: tempObj })
+
+    // PREVENT LIST FROM BEING ONLY ONE ITEM! BASED OFF THIS VARIABLE
+    arrayTotalValues = Object.values(tempObj).reduce((a, b) => a + b)
   }
 
   handleMouseOver = (index) => {
@@ -221,12 +228,13 @@ class App extends Component {
     fact = this.state.fact.slice(0);
     country = this.state.country.slice(0);
     posOfFact = this.state.posOfFact.slice(0);
+    index === 0 ? this.setState({ posOfFact: 'Previous Fact' }) : index === 1 ? this.setState({ posOfFact: 'Antepenultimate Fact' }) : this.setState({ posOfFact: 'Before Antepenultimate Fact' })
     this.setState({ fact: prevFactArray[index], country: prevStateArray[index] });
   }
 
   handleMouseOut = () => {
     console.log("out")
-    this.setState({ fact: fact, country: country })
+    this.setState({ fact: fact, country: country, posOfFact: posOfFact })
   }
 
 

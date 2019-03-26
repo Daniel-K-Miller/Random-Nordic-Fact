@@ -18,7 +18,7 @@ const LI = styled.li`
     cursor: pointer;
         ${props => props.styles === 1 && css`
             background-color: #1a1a1a;
-            color: #ffffb3;
+            color: white;
             border-color: #1a1a1a;
             opacity: 1;
         `}
@@ -28,7 +28,8 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            styles: 1
+            styles: 1,
+            totalSelected: 5
         }
     }
     handleClick = () => {
