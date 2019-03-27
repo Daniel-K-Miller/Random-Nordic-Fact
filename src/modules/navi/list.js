@@ -28,16 +28,16 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            styles: 1,
-            totalSelected: 5
+            styles: 1
         }
     }
     handleClick = () => {
         this.props.onChange(this)
-        this.state.styles === 1 ? this.setState({ styles: 0 }) : this.setState({ styles: 1 });
+        this.state.styles === 1 && this.props.arrayTotal !== 1 ? this.setState({ styles: 0 }) : this.setState({ styles: 1 });
+        console.log(this.props.arrayTotal)
     }
     render() {
-        return <LI key={this.props.id} id={this.props.id} testArray={this.props.testArray} onClick={this.handleClick} styles={this.state.styles}>{this.props.text}</LI>;
+        return <LI key={this.props.id} id={this.props.id} arrayTotal={this.props.arrayTotal} onClick={this.handleClick} styles={this.state.styles}>{this.props.text}</LI>;
     }
 }
 

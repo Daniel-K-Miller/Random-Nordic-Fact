@@ -27,7 +27,7 @@ let fact = undefined;
 let country = '';
 let posOfFact = '';
 
-let arrayTotalValues = 5;
+let arrayTotalValue = 5;
 
 const Wrapper = styled.section`
   display: block;
@@ -196,21 +196,24 @@ class App extends Component {
   }
 
   handleArray = (element) => {
-    console.log(arrayTotalValues)
     // Changes state of clicked so within facts.js with a method the facts are not re-evaluated
     this.setState({ clicked: false })
     // tempObj copy of objectFromArray in state, used again at the end of this method
     let tempObj = { ...this.state.objectFromArray };
+
+
     // tempVar is a first character lowerCase copy of the text used for buttons so they can be compared to the lowerCase state
     let tempVar = element.props.text.charAt(0).toLowerCase() + element.props.text.slice(1);
     // iterate through tempObj to check whether the text within a button in list.js matches a state value
     Object.keys(tempObj).forEach(function eachKey(key) {
       // if there is a match and the previous state was clicked set that object's current key value to 0 showing it has now been deselected
-      if (key === tempVar && tempObj[key] === 1) {
+      if (key === tempVar && tempObj[key] === 1 && arrayTotalValue !== 1) {
         tempObj[key] = 0;
+        arrayTotalValue -= 1;
         // if there is a match and the previous state was not clicked set that object's current key value to 0 showing it has been selected
       } else if (key === tempVar && tempObj[key] === 0) {
         tempObj[key] = 1;
+        arrayTotalValue += 1;
       }
     })
     // finally set the state using the tempObj variable at the start of the method
@@ -218,7 +221,7 @@ class App extends Component {
     this.setState({ objectFromArray: tempObj })
 
     // PREVENT LIST FROM BEING ONLY ONE ITEM! BASED OFF THIS VARIABLE
-    arrayTotalValues = Object.values(tempObj).reduce((a, b) => a + b)
+
   }
 
   handleMouseOver = (index) => {
@@ -242,7 +245,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Header />
-        <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} />
+        <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} arrayTotal={arrayTotalValue} />
         <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} posOfFact={this.state.posOfFact} />
         <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} handleMouseOver={this.handleMouseOver} handleMouseOut={this.handleMouseOut} />
