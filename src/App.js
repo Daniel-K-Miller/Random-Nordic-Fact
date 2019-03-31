@@ -6,6 +6,7 @@ import Footer from './modules/Footer.js';
 import Combined from './modules/CombinedFact.js';
 import Buttons from './modules/Buttons.js';
 import PastFacts from './modules/PastFacts.js'
+import SocialMedia from './modules/SocialMedia.js'
 
 // Starting array that will be used as the centrepiece of the app. This information will be used to render the buttons within navi.js + list.js
 // and will also be used within the componentDidMount to set objectFromArray state, this data is the input to the whole application
@@ -273,6 +274,7 @@ class App extends Component {
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} arrayTotal={arrayTotalValue} />
         <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} posOfFact={this.state.posOfFact} />
+        <SocialMedia fact={this.state.fact} />
         <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} handleMouseOver={this.handleMouseOver} handleMouseOut={this.handleMouseOut} />
         <Footer />
       </Wrapper>
