@@ -10,8 +10,8 @@ const Wrapper = styled.div`
     left: 0;
     top: 32.5vh;
     z-index: 1;
+    cursor: pointer;
 `
-
 
 class SocialMedia extends Component {
     render() {
