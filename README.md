@@ -5,9 +5,9 @@ At the top of the application is a navigation bar in which the countries can be 
 
 Once selected the fact will be displayed within the centre of the page. Once a new fact is generated the past three facts will then be displayed below the current fact and can be looked at again by hovering the mouse of them.
 
-These facts can be shared on social media with UI implemented from react-share.
+These facts can be shared on social media with UI implemented from react-share.<br/>
 
-![alt text](https://github.com/Daniel-K-Miller/random-nordic-country/blob/master/Preview.png)
+https://daniel-k-miller.github.io/random-nordic-country/
 
 ### `Getting Started`
 
