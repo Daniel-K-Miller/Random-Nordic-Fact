@@ -22,6 +22,20 @@ const LI = styled.li`
             border-color: #1a1a1a;
             opacity: 1;
         `}
+    
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+
+
+  
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+        font-size: 1em;
+        padding: .5em .1em;
+        margin: .5em .2em;
+        width: auto;
+    }
 `
 
 class ListItem extends Component {

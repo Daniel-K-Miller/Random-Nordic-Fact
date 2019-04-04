@@ -9,6 +9,7 @@ const NameCom = styled.h1`
   border-top: 2px solid white;
   border-left: 2px solid white;
   border-right: 2px solid white;
+  border-bottom: 2px solid white;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   text-align: center;
@@ -57,6 +58,29 @@ const NameCom = styled.h1`
       100% {
           opacity: 1;
       }
+  }
+  // Computer
+  @media (min-width: 1025px) {
+    border-bottom: none;
+  }
+  // tablet
+  @media (min-width: 768px) and (max-width: 1024px) {
+  
+    
+  
+  }
+  // Potrait mobile
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    z-index: 1;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    
   }
 `
 

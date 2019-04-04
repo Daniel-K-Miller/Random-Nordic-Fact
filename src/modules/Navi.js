@@ -5,17 +5,32 @@ import ListItem from './navi/list.js'
 const Nav = styled.nav`
     display: flex;
     color: white;
-    color: white;
     margin: 0 100px;
     background-color: #333333;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    justify-content: center;
     ul {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         list-style-type: none;
         width: 100%;
+    } 
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+  
+        background-color: blue;
+  
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+        margin: 0 auto;
+        ul {
+        width: auto;
+        flex-direction: row;
+        width: auto;
+        }
     }
 `
 

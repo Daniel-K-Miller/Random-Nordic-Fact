@@ -17,8 +17,9 @@ class Combined extends Component {
         return (
             <Wrapper>
                 <Name clicked={this.props.clicked} country={this.props.country} text={this.props.text} />
-                <Position clicked={this.props.clicked} text={this.props.text} posOfFact={this.props.posOfFact} />
+
                 <FactBox clicked={this.props.clicked} country={this.props.country} testArray={this.props.testArray} text={this.props.text} fact={this.props.fact} />
+                <Position clicked={this.props.clicked} text={this.props.text} posOfFact={this.props.posOfFact} />
             </Wrapper>
         )
     }

@@ -43,6 +43,19 @@ const Wrapper = styled.section`
   height: 100vh;
   position: relative;
   background-color: #262626;
+  // tablet
+  @media (min-width: 768px) and (max-width: 1024px) {
+  
+    background-color: blue;
+  
+  }
+  // Potrait mobile
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    height: 100vh;
+    width: auto;
+  
+  }
 `
 
 class App extends Component {

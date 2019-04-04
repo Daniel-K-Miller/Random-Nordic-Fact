@@ -3,15 +3,28 @@ import styled from 'styled-components';
 import uuid from 'uuid';
 
 const Wrapper = styled.article`
-    background-color: ;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 500px;
+    position: relative;
+    top: 10px;
     right: 0;
     left: 0;
+
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        flex-direction: row;
+        
+    }
 `
 const PastFact = styled.h1`
   color: white;
@@ -31,6 +44,21 @@ const PastFact = styled.h1`
     :hover {
         background-color: white;
         color: #262626;
+    }
+
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        padding: .5em 0;
+        margin: 0 .5em;
+        width: 5em;
+    
     }
 `
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const PositionLabel = styled.h1`
   color: white;
@@ -18,6 +18,20 @@ const PositionLabel = styled.h1`
   user-select: none;
   text-align:center;
   left: max-content;
+  // tablet
+  @media (min-width: 768px) and (max-width: 1024px) {
+  
+    background-color: blue;
+  
+  }
+  // Potrait mobile
+  @media (min-width: 320px) and (max-width: 480px) {
+    position: inherit;
+    background: #1a1a1a;
+    color: white;
+    left: 0vw;
+    z-index: 1;
+  }
 `
 
 class Position extends Component {

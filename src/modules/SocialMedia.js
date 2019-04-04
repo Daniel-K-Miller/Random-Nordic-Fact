@@ -11,6 +11,18 @@ const Wrapper = styled.div`
     top: 32.5vh;
     z-index: 1;
     cursor: pointer;
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        display: none;
+    
+    }
 `
 
 class SocialMedia extends Component {
