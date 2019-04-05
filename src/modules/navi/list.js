@@ -33,7 +33,7 @@ const LI = styled.li`
     @media (min-width: 320px) and (max-width: 480px) {
         font-size: 1em;
         padding: .5em .1em;
-        margin: .5em .2em;
+        margin: .2em 0;
         width: auto;
     }
 `

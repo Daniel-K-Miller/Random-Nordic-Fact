@@ -4,7 +4,7 @@ import Navi from './modules/Navi.js';
 import Header from './modules/Title.js';
 import Footer from './modules/Footer.js';
 import Combined from './modules/CombinedFact.js';
-import Buttons from './modules/Buttons.js';
+import Button from './modules/Buttons.js';
 import PastFacts from './modules/PastFacts.js'
 import SocialMedia from './modules/SocialMedia.js'
 
@@ -90,7 +90,6 @@ class App extends Component {
       icelandFacts: [`The population of Iceland was 338,349 in 2017.`, `The capital of Iceland is Reykjavik with a population 122,853.`, `The currency of Iceland is the Icelandic króna.`, `There are no forests in Iceland.`, `Iceland produces the most amount of books/magazine publications per capita. 10% of the population will publish a book in their lifetime.`, `Raw puffin heart is considered an Icelandic delicacy.`, `Beer was prohibited in Iceland from 1915 to 1989.`, `Iceland has 130 active and extinct volcanic mountains, 18 of which have erupted since human inhabitation of Iceland.`, `As of 2015 Icelandic musician Björk has sold between 20 and 40 million records worldwide making her Iceland’s most successful artist in terms of sales.`, `Iceland’s national animal is the Gyrfalcon.`]
     }
     this.handleClick = this.handleClick.bind(this);
-    this.handleReset = this.handleReset.bind(this);
     this.handleArray = this.handleArray.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
@@ -224,18 +223,7 @@ class App extends Component {
       } else if (tempCountry === "norway") {
         array.length === 0 ? this.setState({ norwayFacts: fullNorwayFacts }) : this.setState({ norwayFacts: array });
       }
-    } else if (tempCountry === undefined) {
-      this.setState({ fact: "ERROR!" })
     }
-  }
-
-  // Used within Buttons.js -> ResetButton.js
-  handleReset = () => {
-    this.setState({
-      clicked: false,
-      text: 'Click here!',
-      styles: 'primary'
-    })
   }
 
   // Used within Navi.js -> list.js
@@ -285,7 +273,7 @@ class App extends Component {
       <Wrapper>
         <Header />
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} arrayTotal={arrayTotalValue} />
-        <Buttons clicked={this.state.clicked} text={this.state.text} handleReset={this.handleReset} handleClick={this.handleClick} styles={this.state.styles} />
+        <Button clicked={this.state.clicked} text={this.state.text} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} posOfFact={this.state.posOfFact} />
         <SocialMedia fact={this.state.fact} />
         <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} handleMouseOver={this.handleMouseOver} handleMouseOut={this.handleMouseOut} />

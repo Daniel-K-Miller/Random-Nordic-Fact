@@ -26,7 +26,10 @@ const Nav = styled.nav`
     // Potrait mobile
     @media (min-width: 320px) and (max-width: 480px) {
         margin: 0 auto;
+        
         ul {
+            display: flex;
+            justify-content: space-between;
         width: auto;
         flex-direction: row;
         width: auto;

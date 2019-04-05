@@ -39,6 +39,26 @@ const Nav = styled.footer`
         margin: 0 0 2em 3em;
         color: #595959;
     }
+
+
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+        padding: 0;
+        width: 100vw;
+        img {
+            width: 50px;
+        }
+        p {
+            visibility: hidden;
+        }
+    
+    }
 `
 
 class Footer extends Component {

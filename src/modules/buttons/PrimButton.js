@@ -26,6 +26,20 @@ const Button = styled.a`
   :hover {
     opacity: 1;
   `}
+
+
+  // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        padding: 1em 0;
+    
+    }
 `
 
 class PrimButton extends Component {

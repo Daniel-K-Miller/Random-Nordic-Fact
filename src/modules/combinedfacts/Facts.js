@@ -22,6 +22,8 @@ const Fact = styled.p`
     font-size: 1.1em;
     width: 90vw;
     padding: 5vw;
+    height: 15vh;
+    overflow-y: scroll;
   }
 `
 
