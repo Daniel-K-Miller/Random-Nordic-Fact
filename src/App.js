@@ -41,7 +41,7 @@ const Wrapper = styled.section`
   text-align: center;
   margin: 0 auto;
   width: 1000px;
-  height: 100vh;
+  height: auto;
   position: relative;
   background-color: #0d0d0d;
   // tablet

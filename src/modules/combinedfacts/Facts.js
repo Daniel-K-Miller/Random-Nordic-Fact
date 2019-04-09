@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Position from './Position.js';
+
+const Wrapper = styled.section`
+  position: absolute;
+`
 
 const Fact = styled.p`
   color: white;
@@ -11,6 +16,8 @@ const Fact = styled.p`
   display: inline-block;
   width: 700px;
   text-decoration: none;
+  margin-bottom: 30px;
+  margin-top: 10px;
   // tablet
   @media (min-width: 768px) and (max-width: 1024px) {
   
@@ -30,9 +37,10 @@ const Fact = styled.p`
 class FactBox extends Component {
   render() {
     return (
-      <React.Fragment>
+      <Wrapper>
+        {this.props.text === "Click again!" && <Position clicked={this.props.clicked} text={this.props.text} posOfFact={this.props.posOfFact} />}
         {this.props.text === "Click again!" && <Fact country={this.props.country} testArray={this.props.testArray}>{this.props.fact}</Fact>}
-      </React.Fragment>
+      </Wrapper>
     );
   }
 }

@@ -9,7 +9,6 @@ const Wrapper = styled.article`
   width: 200px;
   position: relative;
 
-
   // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
     
@@ -67,7 +66,9 @@ const PriButton = styled.button`
   :hover {
     opacity: 1;
   `}
-
+  ${props => props.clicked === false && css`
+    top: 525px;
+  `}
 
   
 `
@@ -77,7 +78,7 @@ class Button extends Component {
     render() {
         return (
             <Wrapper>
-                <PriButton styles={this.props.styles} onClick={this.props.handleClick}>
+                <PriButton clicked={this.props.clicked} styles={this.props.styles} onClick={this.props.handleClick}>
                     {this.props.text}
                 </PriButton>
             </Wrapper>

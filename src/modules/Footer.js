@@ -7,8 +7,8 @@ const Nav = styled.footer`
         margin: 0 auto;
         display: flex;
         justify-content: center;
-        background-color: #0d0d0d;
-        position: absolute;
+        background-color: transparent;
+        
         padding: 1em 0;
         bottom: 0;
     ul {
