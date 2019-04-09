@@ -5,7 +5,7 @@ const PositionLabel = styled.h1`
   color: white;
   padding: .2em .5em;
   font-size: 1.2em;
-  background: #0d0d0d;
+  background: #262626;
   border-radius: 3px;
   text-align: center;
   display: inline-block;
@@ -27,7 +27,9 @@ const PositionLabel = styled.h1`
   // Potrait mobile
   @media (min-width: 320px) and (max-width: 480px) {
     position: inherit;
-    background: #1a1a1a;
+    background: #262626;
+    border-top-left-radius: none;
+    border-top-right-radius: none;
     color: white;
     left: 0vw;
     z-index: 1;
@@ -35,13 +37,13 @@ const PositionLabel = styled.h1`
 `
 
 class Position extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                {this.props.text === "Click again!" && <PositionLabel>{this.props.posOfFact}</PositionLabel>}
-            </React.Fragment>
-        );
-    }
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.text === "Click again!" && <PositionLabel>{this.props.posOfFact}</PositionLabel>}
+      </React.Fragment>
+    );
+  }
 }
 
 export default Position;

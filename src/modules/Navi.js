@@ -5,8 +5,8 @@ import ListItem from './navi/list.js'
 const Nav = styled.nav`
     display: flex;
     color: white;
-    margin: 0 100px;
-    background-color: #333333;
+    margin: 0;
+    background-color: #262626;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     justify-content: center;
@@ -15,7 +15,7 @@ const Nav = styled.nav`
         flex-direction: row;
         justify-content: space-around;
         list-style-type: none;
-        width: 100%;
+        width: 80%;
     } 
     // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
@@ -30,9 +30,9 @@ const Nav = styled.nav`
         ul {
             display: flex;
             justify-content: space-between;
-        width: auto;
-        flex-direction: row;
-        width: auto;
+            width: auto;
+            flex-direction: row;
+            width: 90%;
         }
     }
 `

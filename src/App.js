@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Navi from './modules/Navi.js';
 import Header from './modules/Title.js';
+import Intro from './modules/Intro.js'
 import Footer from './modules/Footer.js';
 import Combined from './modules/CombinedFact.js';
 import Button from './modules/Buttons.js';
@@ -42,7 +43,7 @@ const Wrapper = styled.section`
   width: 1000px;
   height: 100vh;
   position: relative;
-  background-color: #262626;
+  background-color: #0d0d0d;
   // tablet
   @media (min-width: 768px) and (max-width: 1024px) {
   
@@ -273,6 +274,7 @@ class App extends Component {
       <Wrapper>
         <Header />
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} arrayTotal={arrayTotalValue} />
+        {!this.state.clicked && <Intro />}
         <Button clicked={this.state.clicked} text={this.state.text} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} posOfFact={this.state.posOfFact} />
         <SocialMedia fact={this.state.fact} />

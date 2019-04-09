@@ -6,8 +6,7 @@ const LI = styled.li`
     padding: .5em 1em;
     font-size: 1.2em;
     background: #262626;
-    border: 2px solid #666666;
-    border-radius: 3px;
+    border-radius: 6px;
     text-align: center;
     display: inline-block;
     margin: 1em;
@@ -19,7 +18,6 @@ const LI = styled.li`
         ${props => props.styles === 1 && css`
             background-color: #1a1a1a;
             color: white;
-            border-color: #1a1a1a;
             opacity: 1;
         `}
     

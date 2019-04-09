@@ -9,8 +9,8 @@ const Title = styled.header`
   font-family: 'Lato';
   font-weight: bold;
   font-size: 2em;
-  padding: .7em 0;
-  background: #0d0d0d;
+  padding: .5em 0 .2em 0;
+  background: #262626;
 `
 
 class Random extends Component {

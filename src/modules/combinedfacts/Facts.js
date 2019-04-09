@@ -5,7 +5,7 @@ const Fact = styled.p`
   color: white;
   padding: 1.5em;
   font-size: 1.2em;
-  background: #1a1a1a;
+  background: #262626;
   border-radius: 3px;
   text-align: justify;
   display: inline-block;

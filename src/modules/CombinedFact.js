@@ -21,7 +21,7 @@ const Wrapper = styled.article`
     // Potrait mobile
     @media (min-width: 320px) and (max-width: 480px) {
     
-        
+        margin-top: 5vh;
     
     }
 `
