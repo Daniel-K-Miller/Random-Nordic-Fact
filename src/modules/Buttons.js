@@ -23,11 +23,11 @@ const Wrapper = styled.article`
         z-index: 1;
         left: 0;
         right: 0;
-        width: 100vw;
-        
+        width: 100vw;    
     
     }
 `
+
 const PriButton = styled.button`
   color: white;
   padding: .5em 1em;
@@ -42,9 +42,13 @@ const PriButton = styled.button`
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  outline: none;
   :hover {
     opacity: .9;
   }
+  ${props => props.clicked === false && css `
+    
+  `}
 
   // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
@@ -66,13 +70,8 @@ const PriButton = styled.button`
   :hover {
     opacity: 1;
   `}
-  ${props => props.clicked === false && css`
-    top: 525px;
-  `}
-
   
 `
-
 
 class Button extends Component {
     render() {

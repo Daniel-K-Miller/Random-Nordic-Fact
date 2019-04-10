@@ -44,6 +44,7 @@ const Wrapper = styled.section`
   height: auto;
   position: relative;
   background-color: #0d0d0d;
+  
   // tablet
   @media (min-width: 768px) and (max-width: 1024px) {
   
@@ -275,10 +276,10 @@ class App extends Component {
         <Header />
         <Navi nordicArray={originArray} testArray={this.state.objectFromArray} onChange={this.handleArray} arrayTotal={arrayTotalValue} />
         {!this.state.clicked && <Intro />}
-        <Button clicked={this.state.clicked} text={this.state.text} handleClick={this.handleClick} styles={this.state.styles} />
         <Combined clicked={this.state.clicked} text={this.state.text} testArray={this.state.objectFromArray} fact={this.state.fact} country={this.state.country} posOfFact={this.state.posOfFact} />
         <SocialMedia fact={this.state.fact} />
         <PastFacts lastCountries={this.state.lastCountries} lastFacts={this.state.lastFacts} handleMouseOver={this.handleMouseOver} handleMouseOut={this.handleMouseOut} />
+        <Button clicked={this.state.clicked} text={this.state.text} handleClick={this.handleClick} styles={this.state.styles} />
         <Footer />
       </Wrapper>
     );

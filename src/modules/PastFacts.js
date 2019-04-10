@@ -57,6 +57,7 @@ const PastFact = styled.h2`
     :hover {
         background-color: white;
         color: #262626;
+        transition: all .2s ease-in-out;
     }
 
     // tablet

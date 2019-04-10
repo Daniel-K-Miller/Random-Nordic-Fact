@@ -5,10 +5,19 @@ import { TwitterIcon } from 'react-share';
 class Twitter extends Component {
     render() {
         return (
+            this.props.fact ? 
                 <TwitterShareButton
-                    url={"https://google.co.uk"}
+                    url={"https://daniel-k-miller.github.io/random-nordic-fact/"}
                     title={this.props.fact}
-                    hashtags={["randomNordicSnippet"]}
+                    hashtags={["RandomNordicFact"]}
+                >
+                    <TwitterIcon />
+                </TwitterShareButton>
+                :
+                <TwitterShareButton
+                    url={"https://daniel-k-miller.github.io/random-nordic-fact/"}
+                    title={"Find out a quick interesting Nordic fact!"}
+                    hashtags={["RandomNordicFact"]}
                 >
                     <TwitterIcon />
                 </TwitterShareButton>

@@ -5,10 +5,19 @@ import { FacebookIcon } from 'react-share';
 class Facebook extends Component {
     render() {
         return (
+            this.props.fact ?
             <FacebookShareButton
-                url={"https://google.co.uk"}
+                url={"https://daniel-k-miller.github.io/random-nordic-fact/"}
                 quote={this.props.fact}
-                hashtag="#randomNordicSnippet"
+                hashtag="#RandomNordicFact"
+            >
+                <FacebookIcon />
+            </FacebookShareButton>
+            :
+            <FacebookShareButton
+                url={"https://daniel-k-miller.github.io/random-nordic-fact/"}
+                quote={"Find out a quick interesting Nordic fact!"}
+                hashtag="#RandomNordicFact"
             >
                 <FacebookIcon />
             </FacebookShareButton>

@@ -15,6 +15,7 @@ const Fact = styled.p`
   text-align: justify;
   display: inline-block;
   width: 700px;
+  height: 100px;
   text-decoration: none;
   margin-bottom: 30px;
   margin-top: 10px;
