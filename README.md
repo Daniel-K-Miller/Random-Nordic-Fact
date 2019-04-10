@@ -7,7 +7,7 @@ Once selected the fact will be displayed within the centre of the page. Once a n
 
 These facts can be shared on social media with UI implemented from react-share.<br/>
 
-https://daniel-k-miller.github.io/random-nordic-country/
+https://daniel-k-miller.github.io/random-nordic-fact/
 
 ![alt text](https://github.com/Daniel-K-Miller/random-nordic-country/blob/master/Preview.png)
 
