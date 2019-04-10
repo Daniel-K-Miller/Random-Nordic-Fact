@@ -39,7 +39,7 @@ const PositionLabel = styled.h1`
     border-top-left-radius: none;
     border-top-right-radius: none;
     color: white;
-    left: 0vw;
+    margin-top: 5px;
     z-index: 1;
   }
 `

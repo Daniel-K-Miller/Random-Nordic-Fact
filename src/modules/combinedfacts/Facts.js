@@ -29,7 +29,7 @@ const Fact = styled.p`
   @media (min-width: 320px) and (max-width: 480px) {
     font-size: 1.1em;
     width: 90vw;
-    padding: 5vw;
+    padding: 7vw 5vw;
     height: 15vh;
     overflow-y: scroll;
   }

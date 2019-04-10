@@ -74,7 +74,7 @@ const NameCom = styled.h1`
   // Potrait mobile
   @media (min-width: 320px) and (max-width: 480px) {
   
-    z-index: 1;
+    z-index: 2;
     right: 0;
     left: 0;
     width: 100vw;

@@ -49,7 +49,7 @@ const Nav = styled.footer`
     }
     // Potrait mobile
     @media (min-width: 320px) and (max-width: 480px) {
-        padding-bottom: 3vh;
+        position: absolute;
         width: 100vw;
         img {
             width: 15vw;

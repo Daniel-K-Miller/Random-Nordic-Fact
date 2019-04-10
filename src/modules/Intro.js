@@ -13,6 +13,20 @@ const Wrapper = styled.section`
     margin-top: 30px;
     border-radius: 6px;
     padding-bottom: 20px;
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        background-color: blue;
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        height: 40vh;
+        width: auto;
+        overflow-y: scroll;
+    
+    }
 `
 
 const SubHeading = styled.h2`
