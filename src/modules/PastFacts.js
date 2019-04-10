@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import uuid from 'uuid';
 
-const Wrapper = styled.article`
+const Wrapper = styled.section`
     
     display: flex;
     flex-direction: column;
@@ -31,13 +31,31 @@ const Wrapper = styled.article`
     // Potrait mobile
     @media (min-width: 320px) and (max-width: 480px) {
     
-        flex-direction: row;
+        flex-direction: column;
+        padding-top: 0;
+        height: 0;
         
     }
+`
+const InnerWrapper = styled.section`
+    display: flex;
+    flex-direction: row;
 `
 
 const SubHeading = styled.h1`
     color: white;
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        margin-bottom: 2vh;
+    
+    }
 `
 const PastFact = styled.h2`
   color: white;
@@ -71,7 +89,7 @@ const PastFact = styled.h2`
     
         padding: .5em 0;
         margin: 0 .5em;
-        width: 5em;
+        width: 25vw;
     
     }
 `
@@ -81,7 +99,9 @@ class PastFacts extends Component {
         return (
             <Wrapper>
                 {this.props.lastCountries.length > 0 &&<SubHeading>Past Facts</SubHeading>}
-                {this.props.lastCountries.map((x, index) => (<PastFact key={uuid.v4()} onMouseEnter={() => this.props.handleMouseOver(index)} onMouseLeave={this.props.handleMouseOut} fact={this.props.lastFacts[index]}>{x}</PastFact>))}
+                <InnerWrapper>
+                    {this.props.lastCountries.map((x, index) => (<PastFact key={uuid.v4()} onMouseEnter={() => this.props.handleMouseOver(index)} onMouseLeave={this.props.handleMouseOut} fact={this.props.lastFacts[index]}>{x}</PastFact>))}
+                </InnerWrapper>
             </Wrapper>
             
         )

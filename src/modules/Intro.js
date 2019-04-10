@@ -58,14 +58,22 @@ const Note = styled.p`
         opacity: 1;
         transition: all .3s ease-in-out;
     }
+    // tablet
+    @media (min-width: 768px) and (max-width: 1024px) {
+    
+        background-color: blue;
+    
+    }
+    // Potrait mobile
+    @media (min-width: 320px) and (max-width: 480px) {
+    
+        text-align: center;
+    
+    }
 `
 const NoteText = styled.span`
     color: white;
-    text-indent: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    position: absolute;
+    
 `
 class Intro extends Component {
     render() {
@@ -74,22 +82,22 @@ class Intro extends Component {
                 <SubHeading>Introduction</SubHeading>
                 <Paragraph>
                     This web application is a random generator which has been made to display a random fact regarding the Nordic countries. 
-                    <Note>Note<NoteText>These countries are: Denmark, Finland, Sweden, Norway, Iceland</NoteText></Note>
+                    <Note>Note: <NoteText>These countries are: Denmark, Finland, Sweden, Norway, Iceland</NoteText></Note>
                 </Paragraph>
                 <SubHeading>How It works</SubHeading>
                 <Paragraph>
                     Just above the introduction paragraph (and right below the 'Random Nordic Fact' title of this page) are the toggles for
                     selecting the countries to be picked from the random generator. By default all countries are set to toggled, to untoggle a
                     country just simply click it. 
-                    <Note>Note<NoteText>at least one country must be selected at all times</NoteText></Note>
+                    <Note>Note: <NoteText>at least one country must be selected at all times</NoteText></Note>
                 </Paragraph>
                 <Paragraph>
-                    - Once more than one fact has been displayed, the 'past facts' section will become active. This section can be hovered over (or 
+                    Once more than one fact has been displayed, the 'past facts' section will become active. This section can be hovered over (or 
                     touched on mobile) to show the previous facts that have been displayed. 
-                    <Note>Note<NoteText>only the previous three facts can be selected from</NoteText></Note>
+                    <Note>Note: <NoteText>only the previous three facts can be selected from</NoteText></Note>
                 </Paragraph>
                 <Paragraph>
-                    - To start the application just click the 'Click Here' button displayed below. To display another fact click the 'Click again!'
+                    To start the application just click the 'Click Here' button displayed below. To display another fact click the 'Click again!'
                     button.
                 </Paragraph>
             </Wrapper>

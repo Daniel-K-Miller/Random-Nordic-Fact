@@ -9,7 +9,7 @@ const Wrapper = styled.article`
   margin: 1em auto;
   align-items: center;
   position: relative;
-  height: 200px;
+  height: 25vh;
   margin-top: 50px;
 
     // tablet
