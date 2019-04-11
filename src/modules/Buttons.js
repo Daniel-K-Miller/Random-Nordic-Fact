@@ -53,7 +53,7 @@ const PriButton = styled.button`
   // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
     
-        
+        font-size: 1.5em;
     
     }
     // Potrait mobile

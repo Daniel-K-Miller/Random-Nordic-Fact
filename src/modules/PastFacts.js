@@ -9,7 +9,7 @@ const Wrapper = styled.section`
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    background-color: #1a1a1a;
+    
     border-radius: 6px;
     width: max-content;
     height: 280px;
@@ -25,7 +25,7 @@ const Wrapper = styled.section`
     // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
     
-
+        font-size: 1.2em;
 
     }
     // Potrait mobile

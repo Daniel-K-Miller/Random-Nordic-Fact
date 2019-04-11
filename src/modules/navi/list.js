@@ -24,7 +24,8 @@ const LI = styled.li`
     // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
 
-
+        font-size: 1.3em;
+        vertical-align: center;
   
     }
     // Potrait mobile

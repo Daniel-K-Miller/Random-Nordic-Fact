@@ -16,7 +16,7 @@ const Wrapper = styled.section`
     // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
     
-        background-color: blue;
+        
     
     }
     // Potrait mobile
@@ -61,7 +61,7 @@ const Note = styled.p`
     // tablet
     @media (min-width: 768px) and (max-width: 1024px) {
     
-        background-color: blue;
+        
     
     }
     // Potrait mobile

@@ -39,7 +39,7 @@ class FactBox extends Component {
   render() {
     return (
       <Wrapper>
-        {this.props.text === "Click again!" && <Position clicked={this.props.clicked} text={this.props.text} posOfFact={this.props.posOfFact} />}
+        {this.props.text === "Click again!" && <Position clicked={this.props.clicked} text={this.props.text} posOfFact={this.props.posOfFact} styles={this.props.country} />}
         {this.props.text === "Click again!" && <Fact country={this.props.country} testArray={this.props.testArray}>{this.props.fact}</Fact>}
       </Wrapper>
     );
