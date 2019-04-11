@@ -52,7 +52,7 @@ const PositionLabel = styled.h1`
     
     background: #EF2B2D;
     border-color: white;
-    border: 2px solid white;
+    border: 2px solid #EF2B2D;
   `}
   ${props => props.styles === "Sweden" && css`
     
@@ -70,7 +70,7 @@ const PositionLabel = styled.h1`
     
     background: #02529C;
     border-color: #DC1E35;
-    border: 2px solid #DC1E35;
+    border: 2px solid #02529C;
 
   `}
   // Potrait mobile

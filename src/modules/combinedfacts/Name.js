@@ -30,7 +30,7 @@ const NameCom = styled.h1`
   ${props => props.styles === "Norway" && css`
     color: #002868;
     background: #EF2B2D;
-    border-color: white;
+    border-color: #EF2B2D;
   `}
   ${props => props.styles === "Sweden" && css`
     color: #FECC00;
@@ -45,7 +45,7 @@ const NameCom = styled.h1`
   ${props => props.styles === "Iceland" && css`
     color: white;
     background: #02529C;
-    border-color: #DC1E35;
+    border-color: #02529C;
   `}
   :hover {
       animation: myMove 2s ease-in-out;

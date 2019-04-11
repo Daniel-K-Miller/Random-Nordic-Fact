@@ -35,7 +35,7 @@ const SubHeading = styled.h2`
     padding: 0 .5em;
     margin-bottom: .5em;
 `
-const Paragraph = styled.p`
+const Paragraph = styled.article`
     color: white;
     text-align: left;
     padding: 0 .5em;
