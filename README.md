@@ -25,7 +25,7 @@ For deploment run 'npm run build'
 
 ### `Author`
 
-Daniel Kieron Miller - initial app - Random Nordic Snippet
+Daniel Kieron Miller - initial app - Random Nordic Fact
 
 ### License
 
