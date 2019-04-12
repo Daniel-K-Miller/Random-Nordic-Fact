@@ -1,4 +1,4 @@
-## Random Nordic Snippet
+## Random Nordic Fact
 
 This single-page application is a random fact generator for selecting a random Nordic fact. 
 At the top of the application is a navigation bar in which the countries can be toggled to be included or excluded by a click from the generator.
