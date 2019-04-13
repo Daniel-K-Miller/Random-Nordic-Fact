@@ -9,7 +9,7 @@ These facts can be shared on social media with UI implemented from react-share.<
 
 ![alt text](https://github.com/Daniel-K-Miller/random-nordic-country/blob/master/Preview.png)
 
-https://daniel-k-miller.github.io/random-nordic-fact/
+https://daniel-k-miller.github.io/Random-Nordic-Fact/
 
 ### `Getting Started`
 
